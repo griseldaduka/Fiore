@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Fiore.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<body>
+
+    <h1>Index</h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ProductName
+                </th>
+                <th>
+                    Description
+                </th>
+
+                <th>
+                    UnitPrice
+                </th>
+                <th>
+                    UnitsInStock
+                </th>
+                <th>
+                    CreatedDate
+                </th>
+                <th>
+                    UpdatedDate
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    ImageName
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.ProductName
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+
+                    <td>
+                        @item.UnitPrice
+                    </td>
+                    <td>
+                        item.UnitsInStock)
+                    </td>
+                    <td>
+                        @item.CreatedDate
+                    </td>
+                    <td>
+                        @item.UpdatedDate
+                    </td>
+                    <td>
+                        @item.Category.CategoryName
+                    </td>
+                    <td>
+                        <img class="img-responsive" src="~/Images/Products/@(item.Category.CategoryName)/@(item.ImageName).jpg" width="250" height="110">
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>|
+
+                        <form asp-action="AddCartItem" asp-controller="ShoppingCart" asp-route-id="@item.ProductId" method="post">
+                            <button type="submit" > Add to cart</button>
+                        </form>
+                        
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <script>
+    </script>
+</body>
+</html>

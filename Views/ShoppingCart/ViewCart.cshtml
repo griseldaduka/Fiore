@@ -1,0 +1,33 @@
+﻿@model List<CartItem>
+
+
+<html>
+<body>
+    @if(Model != null && Model.Any())
+    {
+        <table class="table">
+        <tr>
+            <th>Product  </th>
+            <th>Quantity</th>
+        </tr>
+        @foreach(var cartItem in Model )
+        {
+            <tr>
+                <td>
+                    @cartItem.Product.ProductName
+                </td>
+                <td>
+                    @cartItem.Quantity
+                </td>
+            </tr>
+        }
+
+        </table>
+    }
+    else
+    {
+        <p>There is no data in the shopping cart</p>
+    }
+
+</body>
+</html>
