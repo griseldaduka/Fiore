@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Fiore.Models.Product>
+﻿@*@model IEnumerable<Fiore.Models.Product>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -80,7 +80,7 @@
                             <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
                             <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>|*@
 
-                        <form id="addtocartform" >
+                       @* <form id="addtocartform" >
                             <label>Quantity:</label>
                             <input type="hidden" value="@item.ProductId" id="productid" />
                             <input type="number"  value="1" id="qnt" />
@@ -122,4 +122,4 @@
     </script>
 
 </body>
-</html>
+</html>*@

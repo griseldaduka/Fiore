@@ -3,16 +3,22 @@
 
 <html>
 <body>
+
     @if (Model != null && Model.Any())
     {
+        decimal TotalPrice = 0;
         <table class="table">
             <tr>
                 <th>Product  </th>
                 <th>Quantity</th>
+                <th>Unit Price</th>
                 <th>Change quantity</th>
+                <th>Subtotal</th>
             </tr>
             @foreach (var cartItem in Model)
             {
+                var Subtotal = @cartItem.Quantity * @cartItem.Product.UnitPrice;
+                TotalPrice = TotalPrice + Subtotal;
                 <tr>
                     <td>
                         @cartItem.Product.ProductName
@@ -21,11 +27,17 @@
                         @cartItem.Quantity
                     </td>
                     <td>
+                        @cartItem.Product.UnitPrice
+                    </td>
+                    <td>
                         <form asp-action="UpdateQuantity" asp-controller="ShoppingCart" method="post">
                             <input type="hidden" value="@cartItem.Product.ProductId" id="productid">
                             <input type="number" min="1" value="@cartItem.Quantity" id="newquantity">
                             <input type="submit" value="Update quantity" onclick="UpdateQuantity()">
                         </form>
+                    </td>
+                    <td>
+                        @Subtotal
                     </td>
                     <td>
                         <a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId"> Remove item </a>
@@ -37,11 +49,14 @@
             }
 
         </table>
+        <p>Total Price: @TotalPrice</p>
+
     }
     else
     {
         <p>There is no data in the shopping cart</p>
     }
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous">
@@ -58,15 +73,10 @@
                 url: '/ShoppingCart/UpdateQuantity?id='+productid+'&quantity='+qnt,
                 //data: data,
                 success: function (result) {
-                    
                     alert('Successfully received Data ');
-
                 }
             })
         }
-
-
-
     </script>
 
 </body>
