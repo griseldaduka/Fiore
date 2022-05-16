@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fiore.Models;
 using Fiore.Data;
+using Fiore.Models.ViewModels;
 
 namespace Fiore.Controllers
 {
@@ -54,7 +55,7 @@ namespace Fiore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,UserId,OrderDate,TotalPrice,HouseNumber,StreetName,CityName,CountryName")] Order order)
+        public async Task<IActionResult> Create( OrderViewModel order)
         {
             if (ModelState.IsValid)
             {
@@ -86,33 +87,43 @@ namespace Fiore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,UserId,OrderDate,TotalPrice,HouseNumber,StreetName,CityName,CountryName")] Order order)
+        public async Task<IActionResult> Edit(int id, OrderViewModel order)
         {
-            if (id != order.OrderId)
+            var existingOrder = await _context.Orders.FindAsync(id);    
+            if(existingOrder != null)
             {
+                if (ModelState.IsValid)
+                {
+                    existingOrder.OrderId=order.OrderId; 
+                    existingOrder.UserId=order.UserId;  
+                    existingOrder.TotalPrice=order.TotalPrice;
+                    existingOrder.OrderDate=order.OrderDate;  
+                    existingOrder.HouseNumber=order.HouseNumber;    
+                    existingOrder.StreetName=order.StreetName;  
+                    existingOrder.CityName=order.CityName;  
+                    existingOrder.CountryName=order.CountryName;    
+
+                    try
+                    {
+                        _context.Update(order);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!OrderExists(order.OrderId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(order);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrderExists(order.OrderId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
+            
             return View(order);
         }
 

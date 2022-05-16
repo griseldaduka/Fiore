@@ -7,66 +7,62 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserId)
+                model.UserId
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
+                OrderDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TotalPrice)
+                TotalPrice
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HouseNumber)
+                HouseNumber
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StreetName)
+                StreetName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CityName)
+                CityName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CountryName)
+                CountryName
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HouseNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreetName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CityName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    item.UserId
+                </td>
+                <td>
+                    @item.OrderDate
+                </td>
+                <td>
+                    @item.TotalPrice
+                </td>
+                <td>
+                    @item.HouseNumber
+                </td>
+                <td>
+                    @item.StreetName
+                </td>
+                <td>
+                    @item.CityName
+                </td>
+                <td>
+                    @item.CountryName
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.OrderId">Details</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

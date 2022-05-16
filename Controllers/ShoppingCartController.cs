@@ -14,23 +14,6 @@ namespace Fiore.Controllers
             _context = context;
         }
 
-        //[HttpPost]
-        //public IActionResult AddItem(int? productId)
-        //{
-        //    var product = _context.Products.Find(productId);
-        //    if (string.IsNullOrEmpty(HttpContext.Session.GetString("cart")))
-        //    {
-        //        //HttpContext.Session.SetString("cart", "The Doctor");
-        //        List<Item> cart = new List<Item>();
-        //        cart.Add(new Item { Product = product, Quantity = 1 });
-        //        HttpContext.Session.SetString("cart", cart.ToString());
-        //    }
-
-        //        HttpContext.Session.SetString("cart", product.ProductName);
-        //    return View();
-        //}
-
-
         [HttpGet]
         public IActionResult ViewCart()
         {
@@ -38,8 +21,10 @@ namespace Fiore.Controllers
             return View(cartItems);
         }
 
+       
+
         [HttpPost]
-        public IActionResult AddCartItem(int id)
+        public IActionResult AddCartItem(int id, int quantity)
         {
             var product = _context.Products.Find(id);
             if (product == null)
@@ -47,13 +32,13 @@ namespace Fiore.Controllers
                 return NotFound();
             }
 
-            if(SessionHelper.GetObjectFromJson<List<CartItem>>(HttpContext.Session, "cart") == null)
+            if (HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart") == null)
             {
                 List<CartItem> cart = new List<CartItem>();
                 cart.Add(new CartItem
                 {
                     Product = product,
-                    Quantity = 1
+                    Quantity = quantity
                 });
                 HttpContext.Session.SetObjectAsJson("cart", cart);
             }
@@ -63,12 +48,48 @@ namespace Fiore.Controllers
                 sessionCart.Add(new CartItem
                 {
                     Product = product,
-                    Quantity = 1
+                    Quantity = quantity
                 });
                 HttpContext.Session.SetObjectAsJson("cart", sessionCart);
             }
-           
-            return RedirectToAction("Index", "Products");
+
+            return Ok();
+        }
+
+        public IActionResult RemoveCartItem(int id)
+        {
+            var list = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+            foreach (var item in list)
+            {
+                if(item.Product.ProductId == id)
+                {
+                    list.Remove(item);
+                    break;
+                }
+            }
+            HttpContext.Session.SetObjectAsJson("cart", list);
+            return RedirectToAction("ViewCart", "ShoppingCart");
+        }
+
+        [HttpPost]
+        public IActionResult UpdateQuantity( int id, int quantity)
+        {
+            List<CartItem> list = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            foreach (var item in list)
+            {
+                if (item.Product.ProductId == id)
+                {
+                    item.Quantity = quantity;
+                    break;
+                }
+            }
+
+            HttpContext.Session.SetObjectAsJson("cart", list);
+            return RedirectToAction("ViewCart", "ShoppingCart");
         }
     }
 }

@@ -1,21 +1,24 @@
-﻿using Fiore.Models;
+﻿using Fiore.Data;
+using Fiore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Fiore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly FioreDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(FioreDbContext context)
         {
-            _logger = logger;
+            _context=context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var products = _context.Products.Include(p => p.Category).ToList();
+            return View(products);
         }
 
         public IActionResult Privacy()

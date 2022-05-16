@@ -3,24 +3,38 @@
 
 <html>
 <body>
-    @if(Model != null && Model.Any())
+    @if (Model != null && Model.Any())
     {
         <table class="table">
-        <tr>
-            <th>Product  </th>
-            <th>Quantity</th>
-        </tr>
-        @foreach(var cartItem in Model )
-        {
             <tr>
-                <td>
-                    @cartItem.Product.ProductName
-                </td>
-                <td>
-                    @cartItem.Quantity
-                </td>
+                <th>Product  </th>
+                <th>Quantity</th>
+                <th>Change quantity</th>
             </tr>
-        }
+            @foreach (var cartItem in Model)
+            {
+                <tr>
+                    <td>
+                        @cartItem.Product.ProductName
+                    </td>
+                    <td>
+                        @cartItem.Quantity
+                    </td>
+                    <td>
+                        <form asp-action="UpdateQuantity" asp-controller="ShoppingCart" method="post">
+                            <input type="hidden" value="@cartItem.Product.ProductId" id="productid">
+                            <input type="number" min="1" value="@cartItem.Quantity" id="newquantity">
+                            <input type="submit" value="Update quantity" onclick="UpdateQuantity()">
+                        </form>
+                    </td>
+                    <td>
+                        <a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId"> Remove item </a>
+                        @*                        <a asp-action="UpdateQuantity" asp-cntroller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId"> Update Quantity </a>
+                        *@
+                    </td>
+
+                </tr>
+            }
 
         </table>
     }
@@ -28,6 +42,32 @@
     {
         <p>There is no data in the shopping cart</p>
     }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript">
+        function UpdateQuantity() {
+            console.log('test');
+            var qnt = $("#newquantity").val();
+            var productid = $("#productid").val();
+            console.log(qnt, productid);
+            $.ajax({
+                type: 'POST',
+                url: '/ShoppingCart/UpdateQuantity?id='+productid+'&quantity='+qnt,
+                //data: data,
+                success: function (result) {
+                    
+                    alert('Successfully received Data ');
+
+                }
+            })
+        }
+
+
+
+    </script>
 
 </body>
 </html>

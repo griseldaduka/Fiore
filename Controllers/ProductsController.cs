@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fiore.Models;
 using Fiore.Data;
+using Fiore.Models.ViewModels;
 
 namespace Fiore.Controllers
 {
@@ -57,7 +58,7 @@ namespace Fiore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,CategoryId,ProductName,Description,ImageName,UnitPrice,UnitsInStock,CreatedDate,UpdatedDate")] Product product)
+        public async Task<IActionResult> Create( ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
@@ -90,34 +91,45 @@ namespace Fiore.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,CategoryId,ProductName,Description,ImageName,UnitPrice,UnitsInStock,CreatedDate,UpdatedDate")] Product product)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ProductViewModel product)
         {
-            if (id != product.ProductId)
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (existingProduct != null)
             {
+                if (ModelState.IsValid)
+                {
+                    existingProduct.ProductId = product.ProductId;
+                    existingProduct.CategoryId = product.CategoryId;
+                    existingProduct.ProductName = product.ProductName;
+                    existingProduct.Description = product.Description;
+                    existingProduct.ImageName = product.ImageName;
+                    existingProduct.UnitPrice = product.UnitPrice;
+                    existingProduct.UnitPrice = product.UnitPrice;
+                    existingProduct.CreatedDate = product.CreatedDate;
+                    existingProduct.UpdatedDate = product.UpdatedDate;
+
+                    try
+                    {
+                        _context.Update(existingProduct);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!ProductExists(product.ProductId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.ProductId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
+            
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
