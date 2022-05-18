@@ -1,47 +1,44 @@
-﻿@*@model IEnumerable<Fiore.Models.Product>
+﻿@model IEnumerable<Fiore.Models.ViewModels.ProductViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
 <html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Fiore.styles.css" asp-append-version="true" />
+</head>
 <body>
+     <div class="text-center">
+                <h1 class="display-4">Home Controller</h1>
+            </div>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+           
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item"><a class="nav-link text-dark hide all"  asp-action="Index" asp-controller="Products"> All</a></li>
+                    <li class="nav-item"> <a class="nav-link text-dark green"  asp-action="Index" asp-controller="Home" asp-route-filtro="Green"> Green</a></li>
+                    <li class="nav-item"> <a class="nav-link text-dark cactus"  asp-action="Index" asp-controller="Home" asp-route-filtro="Cactus"> Cactus</a></li>
+                    <li class="nav-item"> <a class="nav-link text-dark winter"  asp-action="Index" asp-controller="Home" asp-route-filtro="Winter"> Winter</a></li>
+                    <li class="nav-item"> <a class="nav-link text-dark tulip"  asp-action="Index" asp-controller="Home" asp-route-filtro="Tulip"> Tulips</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-
-    <div class="text-center">
-        <h1 class="display-4">Home Controller</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
-
-    <h1>Index</h1>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
     <table class="table">
         <thead>
             <tr>
                 <th>
                     ProductName
                 </th>
-                <th>
-                    Description
-                </th>
 
                 <th>
                     UnitPrice
                 </th>
-                <th>
-                    UnitsInStock
-                </th>
-                <th>
-                    CreatedDate
-                </th>
-                <th>
-                    UpdatedDate
-                </th>
-                <th>
-                    Category
-                </th>
-                <th>
-                    ImageName
+                <th class="text-center">
+                    Action
                 </th>
 
             </tr>
@@ -54,40 +51,26 @@
                         @item.ProductName
                     </td>
                     <td>
-                        @item.Description
-                    </td>
-
-                    <td>
                         @item.UnitPrice
                     </td>
                     <td>
-                        item.UnitsInStock)
-                    </td>
-                    <td>
-                        @item.CreatedDate
-                    </td>
-                    <td>
-                        @item.UpdatedDate
-                    </td>
-                    <td>
-                        @item.Category.CategoryName
-                    </td>
-                    <td>
-                        <img class="img-responsive" src="~/Images/Products/@(item.Category.CategoryName)/@(item.ImageName).jpg" width="250" height="110">
-                    </td>
-                    <td>
-                        @*<a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>|*@
+                        <input type="hidden" value="@item.ProductId" class="productid" />
 
-                       @* <form id="addtocartform" >
-                            <label>Quantity:</label>
-                            <input type="hidden" value="@item.ProductId" id="productid" />
-                            <input type="number"  value="1" id="qnt" />
-                            <input type="button" id="addtocartform" value="Add to cart" onclick="Add()" />
-                        </form>
-                        <a asp-action="ViewCart" class="visible" asp-controller="ShoppingCart" id="viewcart" asp-route-id="@item.ProductId">View Cart</a>
+                        @if (@item.IsInCart)
+                        {
+                            <label class="hide qnt-lbl">Quantity:</label>
+                            <input type="number" value="1" class="qnt hide" />
+                            <input type="button" value="Add to cart" class="add-to-cart hide" />
+                            <a asp-action="ViewCart" class=" view-cart" asp-controller="ShoppingCart" id="viewcart">View Cart</a>
+                        }
+                        else
+                        {
+                            <label class="qnt-lbl">Quantity:</label>
+                            <input type="number" value="1" class="qnt" />
+                            <input type="button" value="Add to cart" class="add-to-cart" />
+                            <a asp-action="ViewCart" class="hide view-cart" asp-controller="ShoppingCart" id="viewcart">View Cart</a>
 
+                        }
                     </td>
                 </tr>
             }
@@ -97,29 +80,32 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous">
     </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script type="text/javascript">
-        function Add() {
-            console.log('test');
-            var qnt = $("#qnt").val();
-            var productid = $("#productid").val();
-            console.log(qnt, productid);
-            //const data = {id: productid, quantity: qnt};
-            $.ajax({
-                type: 'POST',
-                url: '/ShoppingCart/AddCartItem?id='+productid+'&quantity='+qnt,
-                //data: data,
-                success: function (result) {
-                    $("addtocartform").hide(1000);
-                    alert('Successfully received Data ');
 
-                }
-            })
-        }
+        $(document).ready(function() {
+            $(".add-to-cart").click(function(){
+                console.log('test');
+                 var productid= $(this).siblings('.productid').val();
+                 var qnt= $(this).siblings('.qnt').val();
+                 $(this).siblings('.view-cart').show();
+                 $(this).siblings('.qnt').hide();
+                 $(this).siblings('.qnt-lbl').hide();
+                 $(this).hide();
 
-      
-
+                $.ajax({
+                    type: 'POST',
+                    url: '/ShoppingCart/AddCartItem?id='+productid+'&quantity='+qnt,
+                    success: function (result) {
+                        alert('Successfully received Data ');
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
-</html>*@
+</html>

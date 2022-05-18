@@ -1,5 +1,6 @@
 ﻿using Fiore.Data;
 using Fiore.Models;
+using Fiore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -12,13 +13,77 @@ namespace Fiore.Controllers
 
         public HomeController(FioreDbContext context)
         {
-            _context=context;
+            _context = context;
         }
 
-        public IActionResult Index()
+
+        [HttpGet]
+        public async Task<IActionResult> Index(string? filtro)
         {
-            var products = _context.Products.Include(p => p.Category).ToList();
-            return View(products);
+
+            List<ProductViewModel> productModel = new List<ProductViewModel>();
+            if (filtro == null)
+            {
+                var entityProducts = _context.Products.Include(p => p.Category);
+                var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+
+                foreach (var product in entityProducts)
+                {
+                    var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
+
+                    productModel.Add(new ProductViewModel
+                    {
+                        ProductId = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        ProductName = product.ProductName,
+                        Description = product.Description,
+                        ImageName = product.ImageName,
+                        UnitPrice = product.UnitPrice,
+                        UnitsInStock = product.UnitsInStock,
+                        CreatedDate = product.CreatedDate,
+                        UpdatedDate = product.UpdatedDate,
+                        IsInCart = isInCart,
+                    });
+                }
+                return View(productModel);
+            }
+
+            else
+            {
+                var category = _context.Categories.First(i => i.CategoryName == filtro);
+                var ctgId = category.CategoryId;
+                var entityProducts = _context.Products.Where(i => i.CategoryId == ctgId);
+
+
+
+                var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+
+                if (entityProducts == null)
+                {
+                    return View(productModel);
+                }
+
+                foreach (var product in entityProducts)
+                {
+                    var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
+
+                    productModel.Add(new ProductViewModel
+                    {
+                        ProductId = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        ProductName = product.ProductName,
+                        Description = product.Description,
+                        ImageName = product.ImageName,
+                        UnitPrice = product.UnitPrice,
+                        UnitsInStock = product.UnitsInStock,
+                        CreatedDate = product.CreatedDate,
+                        UpdatedDate = product.UpdatedDate,
+                        IsInCart = isInCart,
+                    });
+                }
+            }
+
+            return View(productModel);
         }
 
         public IActionResult Privacy()

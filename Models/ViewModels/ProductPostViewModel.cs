@@ -2,9 +2,8 @@
 
 namespace Fiore.Models.ViewModels
 {
-    public class ProductViewModel
+    public class ProductPostViewModel
     {
-        public int ProductId { get; set; }
         public int CategoryId { get; set; }
 
         [Required]
@@ -18,8 +17,8 @@ namespace Fiore.Models.ViewModels
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "Image Name")]
-        public string ImageName { get; set; }
+        [Display(Name = "Image ")]
+        public IFormFile Image { get; set; }
 
         [Required]
         [DataType(DataType.Currency)]
@@ -30,13 +29,6 @@ namespace Fiore.Models.ViewModels
         [Display(Name = "Units In Stock")]
         public int UnitsInStock { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime CreatedDate { get; set; }
-
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime UpdatedDate { get; set; }
-        public bool IsInCart { get; set; }
+        
     }
 }

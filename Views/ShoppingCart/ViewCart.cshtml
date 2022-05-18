@@ -3,6 +3,9 @@
 
 <html>
 <body>
+    <div class=" text-center">
+        <a asp-action="Index" asp-controller="Products" class=" btn btn-default">Continue Shoping</a>
+    </div>
 
     @if (Model != null && Model.Any())
     {
@@ -12,7 +15,6 @@
                 <th>Product  </th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
-                <th>Change quantity</th>
                 <th>Subtotal</th>
             </tr>
             @foreach (var cartItem in Model)
@@ -24,25 +26,20 @@
                         @cartItem.Product.ProductName
                     </td>
                     <td>
-                        @cartItem.Quantity
+                        <input type="hidden" value="@cartItem.Product.ProductId" class="productid">
+                        <input type="number" min="1" value="@cartItem.Quantity" class="newquantity">
                     </td>
                     <td>
                         @cartItem.Product.UnitPrice
                     </td>
-                    <td>
-                        <form asp-action="UpdateQuantity" asp-controller="ShoppingCart" method="post">
-                            <input type="hidden" value="@cartItem.Product.ProductId" id="productid">
-                            <input type="number" min="1" value="@cartItem.Quantity" id="newquantity">
-                            <input type="submit" value="Update quantity" onclick="UpdateQuantity()">
-                        </form>
-                    </td>
+
                     <td>
                         @Subtotal
                     </td>
                     <td>
-                        <a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId"> Remove item </a>
-                        @*                        <a asp-action="UpdateQuantity" asp-cntroller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId"> Update Quantity </a>
-                        *@
+                        <a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
                     </td>
 
                 </tr>
@@ -50,33 +47,38 @@
 
         </table>
         <p>Total Price: @TotalPrice</p>
+        <a asp-action="Create" asp-controller="Orders" class="btn btn-default"> Proceed to checkout</a>
 
     }
     else
     {
-        <p>There is no data in the shopping cart</p>
+        <p>Empty shopping cart</p>
     }
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script type="text/javascript">
-        function UpdateQuantity() {
-            console.log('test');
-            var qnt = $("#newquantity").val();
-            var productid = $("#productid").val();
-            console.log(qnt, productid);
-            $.ajax({
-                type: 'POST',
-                url: '/ShoppingCart/UpdateQuantity?id='+productid+'&quantity='+qnt,
-                //data: data,
-                success: function (result) {
-                    alert('Successfully received Data ');
-                }
-            })
-        }
+        $(document).ready(function(){
+            $(".newquantity").change(function(){
+                var qnt=$(this).val();
+                var productid=$(this).siblings(".productid").val();
+                console.log(qnt, productid);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/ShoppingCart/UpdateQuantity?id='+productid+'&quantity='+qnt,
+                    success: function (result) {
+                        location.reload(true);
+                    }
+                });
+            });
+        });
     </script>
 
 </body>

@@ -94,32 +94,32 @@ namespace Fiore.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    existingOrder.OrderId=order.OrderId; 
-                    existingOrder.UserId=order.UserId;  
-                    existingOrder.TotalPrice=order.TotalPrice;
-                    existingOrder.OrderDate=order.OrderDate;  
+                    //existingOrder.OrderId=order.OrderId; 
+                    //existingOrder.UserId=order.UserId;  
+                    //existingOrder.TotalPrice=order.TotalPrice;
+                    //existingOrder.OrderDate=order.OrderDate;  
                     existingOrder.HouseNumber=order.HouseNumber;    
                     existingOrder.StreetName=order.StreetName;  
                     existingOrder.CityName=order.CityName;  
                     existingOrder.CountryName=order.CountryName;    
 
-                    try
-                    {
-                        _context.Update(order);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!OrderExists(order.OrderId))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    return RedirectToAction(nameof(Index));
+                    //try
+                    //{
+                    //    _context.Update(order);
+                    //    await _context.SaveChangesAsync();
+                    //}
+                    //catch (DbUpdateConcurrencyException)
+                    //{
+                    //    if (!OrderExists(order.OrderId))
+                    //    {
+                    //        return NotFound();
+                    //    }
+                    //    else
+                    //    {
+                    //        throw;
+                    //    }
+                    //}
+                    //return RedirectToAction(nameof(Index));
                 }
                 return NotFound();
             }

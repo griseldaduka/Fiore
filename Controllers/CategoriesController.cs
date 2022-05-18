@@ -10,6 +10,9 @@ using Fiore.Data;
 
 namespace Fiore.Controllers
 {
+
+  
+
     public class CategoriesController : Controller
     {
         private readonly FioreDbContext _context;
@@ -23,7 +26,7 @@ namespace Fiore.Controllers
         public async Task<IActionResult> Index()
         {
             var result= await _context.Categories.ToListAsync();
-            return View();
+            return View(result);
         }
 
         // GET: Categories/Details/5

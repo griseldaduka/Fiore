@@ -17,11 +17,9 @@ namespace Fiore.Controllers
         [HttpGet]
         public IActionResult ViewCart()
         {
-            var cartItems = SessionHelper.GetObjectFromJson<List<CartItem>>(HttpContext.Session, "cart");
+            var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
             return View(cartItems);
         }
-
-       
 
         [HttpPost]
         public IActionResult AddCartItem(int id, int quantity)
@@ -68,7 +66,7 @@ namespace Fiore.Controllers
                 }
             }
             HttpContext.Session.SetObjectAsJson("cart", list);
-            return RedirectToAction("ViewCart", "ShoppingCart");
+            return RedirectToAction("ViewCart");
         }
 
         [HttpPost]
@@ -89,7 +87,7 @@ namespace Fiore.Controllers
             }
 
             HttpContext.Session.SetObjectAsJson("cart", list);
-            return RedirectToAction("ViewCart", "ShoppingCart");
+            return RedirectToAction("ViewCart");
         }
     }
 }
