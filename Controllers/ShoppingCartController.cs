@@ -25,6 +25,7 @@ namespace Fiore.Controllers
         public IActionResult AddCartItem(int id, int quantity)
         {
             var product = _context.Products.Find(id);
+
             if (product == null)
             {
                 return NotFound();
@@ -36,7 +37,8 @@ namespace Fiore.Controllers
                 cart.Add(new CartItem
                 {
                     Product = product,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    Subtotal= product.UnitPrice * quantity
                 });
                 HttpContext.Session.SetObjectAsJson("cart", cart);
             }
@@ -46,7 +48,9 @@ namespace Fiore.Controllers
                 sessionCart.Add(new CartItem
                 {
                     Product = product,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    Subtotal = product.UnitPrice * quantity
+
                 });
                 HttpContext.Session.SetObjectAsJson("cart", sessionCart);
             }
@@ -82,12 +86,20 @@ namespace Fiore.Controllers
                 if (item.Product.ProductId == id)
                 {
                     item.Quantity = quantity;
+                    item.Subtotal= item.Product.UnitPrice * quantity;   
                     break;
                 }
             }
 
             HttpContext.Session.SetObjectAsJson("cart", list);
             return RedirectToAction("ViewCart");
+        }
+
+        [HttpGet]
+        public IActionResult Checkout()
+        {
+            var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+            return View(cartItems);
         }
     }
 }

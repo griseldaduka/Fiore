@@ -23,11 +23,12 @@ public class FioreDbContext : IdentityDbContext<ApplicationUser>
         builder.Entity<ProductOrderDetails>()
             .HasKey(o => new { o.OrderId, o.ProductId });
 
+        builder.Entity<Order>()
+            .HasOne(u => u.ApplicationUser)
+            .WithMany(o => o.Orders)
+            .HasForeignKey(o => o.UserId)
+            .HasPrincipalKey(u => u.Id);
 
-
-        // Customize the ASP.NET Identity model and override the defaults if needed.
-        // For example, you can rename the ASP.NET Identity table names and more.
-        // Add your customizations after calling base.OnModelCreating(builder);
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguraation());
 
     }

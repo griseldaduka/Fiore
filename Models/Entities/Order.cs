@@ -1,4 +1,5 @@
 ﻿using Fiore.Data;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace Fiore.Models
@@ -7,8 +8,6 @@ namespace Fiore.Models
     {
         
         public int OrderId { get; set; } 
-        public int UserId { get; set; }   
-
         [Required]
         [Display(Name ="Order Date")]
         [DataType(DataType.DateTime)]   
@@ -38,8 +37,9 @@ namespace Fiore.Models
         [StringLength(50, ErrorMessage ="Country name must be shorter")]
         [Display (Name ="Country Name")]
         public string CountryName { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public virtual ICollection<ProductOrderDetails> ProductOrderDetails { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

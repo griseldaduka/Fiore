@@ -19,8 +19,7 @@
             </tr>
             @foreach (var cartItem in Model)
             {
-                var Subtotal = @cartItem.Quantity * @cartItem.Product.UnitPrice;
-                TotalPrice = TotalPrice + Subtotal;
+                TotalPrice = TotalPrice + @cartItem.Subtotal;
                 <tr>
                     <td>
                         @cartItem.Product.ProductName
@@ -34,7 +33,7 @@
                     </td>
 
                     <td>
-                        @Subtotal
+                         @cartItem.Subtotal
                     </td>
                     <td>
                         <a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId">
@@ -47,7 +46,7 @@
 
         </table>
         <p>Total Price: @TotalPrice</p>
-        <a asp-action="Create" asp-controller="Orders" class="btn btn-default"> Proceed to checkout</a>
+        <a asp-action="Checkout" asp-controller="ShoppingCart" class="btn btn-default"> Proceed to checkout</a>
 
     }
     else

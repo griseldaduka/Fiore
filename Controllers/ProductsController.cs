@@ -81,40 +81,6 @@ namespace Fiore.Controllers
             return View();
         }
 
-        //    if (FileUpload.FormFile.Length > 0)
-        //        { 
-        //            using (var stream = new FileStream(Path.Combine(_hostenvironment.WebRootPath, "uploadfiles", FileUpload.FormFile.FileName), FileMode.Create))
-        //            {
-        //                await FileUpload.FormFile.CopyToAsync(stream);
-        //}
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Create([Bind("CategoryId, ProductName,  Description , ImageName ,UnitPrice, UnitsInStock")] Product product)
-        //{
-
-
-        //        _context.Products.Add(new Product
-        //        {
-        //            CategoryId = product.CategoryId,
-        //            ProductName = product.ProductName, 
-        //            Description= product.Description,   
-        //            ImageName= product.ImageName,   
-        //            UnitPrice= product.UnitPrice,
-        //            UnitsInStock= product.UnitsInStock,
-        //            CreatedDate=DateTime.Now,
-        //            UpdatedDate=DateTime.Now, 
-
-
-        //        });
-        //        _context.SaveChanges();
-        //        return RedirectToAction("Index");
-
-
-        //    return View(product);
-        //}
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

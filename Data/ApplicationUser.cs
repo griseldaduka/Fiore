@@ -11,5 +11,5 @@ public class ApplicationUser : IdentityUser
     //[Required]
     //[StringLength(225, ErrorMessage = "Last Name must be shorter")]
     public string LastName { get; set; }
-    public virtual ICollection<Order> Orders { get; set; }
+    public  List<Order> Orders { get; set; }
 }

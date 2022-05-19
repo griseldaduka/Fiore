@@ -1,0 +1,56 @@
+﻿@model List<CartItem>
+
+
+<html>
+<body>
+    <div class=" text-center">
+        <a asp-action="Index" asp-controller="Products" class=" btn btn-default">Continue Shoping</a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        decimal TotalPrice = 0;
+        <table class="table">
+            <tr>
+                <th>Product  </th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Subtotal</th>
+            </tr>
+            @foreach (var cartItem in Model)
+            {
+                TotalPrice = TotalPrice + @cartItem.Subtotal;
+                <tr>
+                    <td>
+                        @cartItem.Product.ProductName
+                    </td>
+                    <td>
+                        @cartItem.Quantity
+                    </td>
+                    <td>
+                        @cartItem.Product.UnitPrice
+                    </td>
+
+                    <td>
+                        @cartItem.Subtotal
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <p><b>Total Price: @TotalPrice</b></p>
+
+        <hr />
+        <h3>Please click below link to get your address details</h3>
+        <a asp-action="Create" asp-controller="Orders" class=" btn btn-default"> Address</a>
+    }
+    else
+    {
+        <h2 class="text-center">Empty shopping cart</h2>
+        <div class=" text-center">
+            <a asp-action="Index" asp-controller="Products" class=" btn btn-default">Continue Shoping</a>
+        </div>
+    }
+
+</body>
+</html>
