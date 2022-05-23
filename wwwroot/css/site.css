@@ -20,3 +20,7 @@ body {
 .hide {
     display: none;
 }
+
+.blank-nav-item {
+    margin-left: 50px;
+}

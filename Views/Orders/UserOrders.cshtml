@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Fiore.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Your orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nr.
+            </th>
+            <th>
+                OrderDate
+            </th>
+            <th>
+                HouseNumber
+            </th>
+            <th>
+                StreetName
+            </th>
+            <th>
+                CityName
+            </th>
+            <th>
+                CountryName
+            </th>
+            <th>
+                TotalPrice
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var count=1;
+          }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @count
+                </td>
+                <td>
+                    @item.OrderDate
+                </td>
+                <td>
+                    @item.HouseNumber
+                </td>
+                <td>
+                    @item.StreetName
+                </td>
+                <td>
+                    @item.CityName
+                </td>
+                <td>
+                    @item.CountryName
+                </td>
+                <td>
+                    @item.TotalPrice
+                </td>
+                <td>
+                    <a asp-action="OrderProducts"  asp-controller="ProductOrderDetails" asp-route-id="@item.OrderId">View order details</a>
+                </td>
+                @count=@count+1;
+            </tr>
+        }
+    </tbody>
+</table>

@@ -20,12 +20,16 @@ namespace Fiore.Controllers
 
         }
 
-        
-
-        // GET: Orders
-        public async Task<IActionResult> Index()
+        //Admin Authorization
+        public async Task<IActionResult> AllOrders()
         {
-            return View( await _context.Orders.ToListAsync());
+            return View(await _context.Orders.ToListAsync());
+        }
+
+        public async Task<IActionResult> UserOrders()
+        {
+            var userId = _userManager.GetUserId(User);
+            return View(await _context.Orders.Where(i => i.UserId == userId).ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -55,7 +59,7 @@ namespace Fiore.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(OrderViewModel order)
         {
-           
+
             if (ModelState.IsValid)
             {
                 var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
@@ -70,19 +74,19 @@ namespace Fiore.Controllers
 
                 _context.Orders.Add(new Order
                 {
-                    UserId = userId,    
+                    UserId = userId,
                     OrderDate = DateTime.Now,
                     TotalPrice = totalPrice,
                     HouseNumber = order.HouseNumber,
                     StreetName = order.StreetName,
                     CityName = order.CityName,
                     CountryName = order.CountryName,
-                    
+
                 });
                 await _context.SaveChangesAsync();
 
-                var actualOrder = _context.Orders.OrderByDescending(i=>i.OrderId).FirstOrDefault();
-                if(actualOrder != null)
+                var actualOrder = _context.Orders.OrderByDescending(i => i.OrderId).FirstOrDefault();
+                if (actualOrder != null)
                 {
                     foreach (var item in cartItems)
                     {
@@ -103,9 +107,9 @@ namespace Fiore.Controllers
 
                 await _context.SaveChangesAsync();
                 HttpContext.Session.Remove("cart");
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Orders", new { id = actualOrder.OrderId });
             }
             return View(order);
         }
-    }   
+    }
 }

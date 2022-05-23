@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fiore.Models;
 using Fiore.Data;
+using Fiore.Models.ViewModels;
 
 namespace Fiore.Controllers
 {
@@ -19,7 +20,6 @@ namespace Fiore.Controllers
             _context = context;
         }
 
-        // GET: ProductOrderDetails/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.ProductOrderDetails == null)
@@ -37,41 +37,24 @@ namespace Fiore.Controllers
             return View(productOrderDetails);
         }
 
-        // GET: ProductOrderDetails/Create
-        public IActionResult Create()
+
+
+        public async Task<IActionResult> OrderProducts(int orderId)
         {
-            return View();
-        }
-
-        // POST: ProductOrderDetails/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("OrderId,ProductId,UnitPrice,Quantity")] ProductOrderDetails productOrderDetails)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(productOrderDetails);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(productOrderDetails);
-        //}
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,ProductId,UnitPrice,Quantity")] ProductOrderDetails productOrderDetails)
-        {
-            if (ModelState.IsValid)
+            List<OrderProductsViewModel> orderProductsList = new List<OrderProductsViewModel>();
+            var orderProducts = await _context.ProductOrderDetails.Where(i => i.OrderId == orderId).ToListAsync();
+            foreach(var oproduct in orderProducts)
             {
-                _context.Add(productOrderDetails);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var products = _context.Products.First(i => i.ProductId == oproduct.ProductId);
+                orderProductsList.Add(new OrderProductsViewModel
+                {
+                    ProductName = products.ProductName,
+                    Quantity = oproduct.Quantity,
+                    UnitPrice=oproduct.UnitPrice,
+                    SubtotalPrice = (oproduct.Quantity) * (oproduct.UnitPrice)
+                }) ;
             }
-            return View(productOrderDetails);
+            return View(orderProductsList);
         }
-        
     }  
 }

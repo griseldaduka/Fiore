@@ -1,10 +1,11 @@
-﻿@model List<CartItem>
+﻿@using Fiore.Models.ViewModels
+@model List<CartItem>
 
 
 <html>
 <body>
     <div class=" text-center">
-        <a asp-action="Index" asp-controller="Products" class=" btn btn-default">Continue Shoping</a>
+        <a asp-action="Index" asp-controller="Home" class=" btn btn-default">Continue Shoping</a>
     </div>
 
     @if (Model != null && Model.Any())
@@ -41,14 +42,16 @@
         <p><b>Total Price: @TotalPrice</b></p>
 
         <hr />
-        <h3>Please click below link to get your address details</h3>
-        <a asp-action="Create" asp-controller="Orders" class=" btn btn-default"> Address</a>
+@*        <h3>Please click below link to get your address details</h3>
+        <a asp-action="Create" asp-controller="Orders" class=" btn btn-default"> Address</a>*@
+
+        @*@await Html.PartialAsync("~/Views/Orders/Create.cshtml", new OrderViewModel());*@
     }
     else
     {
         <h2 class="text-center">Empty shopping cart</h2>
         <div class=" text-center">
-            <a asp-action="Index" asp-controller="Products" class=" btn btn-default">Continue Shoping</a>
+            <a asp-action="Index" asp-controller="Home" class=" btn btn-default">Continue Shoping</a>
         </div>
     }
 

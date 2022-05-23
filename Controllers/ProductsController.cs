@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Fiore.Models;
 using Fiore.Data;
 using Fiore.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiore.Controllers
 {
@@ -23,35 +24,7 @@ namespace Fiore.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            List<ProductViewModel> productModel = new List<ProductViewModel>();
-            var entityProducts = _context.Products.Include(p => p.Category);
-            var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
-
-            if (entityProducts == null)
-            {
-                return View(productModel);
-            }
-
-            foreach (var product in entityProducts)
-            {
-                var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
-
-                productModel.Add(new ProductViewModel
-                {
-                    ProductId = product.ProductId,
-                    CategoryId = product.CategoryId,
-                    ProductName = product.ProductName,
-                    Description = product.Description,
-                    ImageName = product.ImageName,
-                    UnitPrice = product.UnitPrice,
-                    UnitsInStock = product.UnitsInStock,
-                    CreatedDate = product.CreatedDate,
-                    UpdatedDate = product.UpdatedDate,
-                    IsInCart = isInCart,
-                });
-            }
-
-            return View(productModel);
+            return View();
         }
 
         // GET: Products/Details/5
@@ -74,7 +47,7 @@ namespace Fiore.Controllers
         }
 
 
-
+        [Authorize(Roles ="Admin")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
@@ -84,6 +57,7 @@ namespace Fiore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create([Bind("CategoryId, ProductName,  Description , Image ,UnitPrice, UnitsInStock")] ProductPostViewModel product)
         {
             if (ModelState.IsValid)
@@ -126,18 +100,7 @@ namespace Fiore.Controllers
 
             return View(product);
         }
-
-
-
-
-
-
-
-
-
-
-
-
+        [Authorize(Roles = "Admin")]
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -155,11 +118,10 @@ namespace Fiore.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Edit(int id, ProductViewModel product)
         {
             var existingProduct = await _context.Products.FindAsync(id);
@@ -202,7 +164,7 @@ namespace Fiore.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)
@@ -221,9 +183,9 @@ namespace Fiore.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Products == null)
