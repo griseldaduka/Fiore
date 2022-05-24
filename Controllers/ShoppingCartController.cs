@@ -25,37 +25,48 @@ namespace Fiore.Controllers
         public IActionResult AddCartItem(int id, int quantity)
         {
             var product = _context.Products.Find(id);
-
             if (product == null)
             {
                 return NotFound();
             }
-
-            if (HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart") == null)
-            {
-                List<CartItem> cart = new List<CartItem>();
-                cart.Add(new CartItem
-                {
-                    Product = product,
-                    Quantity = quantity,
-                    Subtotal= product.UnitPrice * quantity
-                });
-                HttpContext.Session.SetObjectAsJson("cart", cart);
-            }
             else
             {
-                List<CartItem> sessionCart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
-                sessionCart.Add(new CartItem
+                if (product.UnitsInStock == 0)
                 {
-                    Product = product,
-                    Quantity = quantity,
-                    Subtotal = product.UnitPrice * quantity
+                    return BadRequest("This product is not available");
+                }
 
-                });
-                HttpContext.Session.SetObjectAsJson("cart", sessionCart);
+                if (product.UnitsInStock - quantity < 0)
+                {
+                    return BadRequest("The quantity per this product is over units in stock");
+                }
+
+                if (HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart") == null)
+                {
+                    List<CartItem> cart = new List<CartItem>();
+                    cart.Add(new CartItem
+                    {
+                        Product = product,
+                        Quantity = quantity,
+                        Subtotal = product.UnitPrice * quantity
+                    });
+                    HttpContext.Session.SetObjectAsJson("cart", cart);
+                }
+                else
+                {
+                    List<CartItem> sessionCart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+                    sessionCart.Add(new CartItem
+                    {
+                        Product = product,
+                        Quantity = quantity,
+                        Subtotal = product.UnitPrice * quantity
+
+                    });
+                    HttpContext.Session.SetObjectAsJson("cart", sessionCart);
+                }
+
+                return Ok();
             }
-
-            return Ok();
         }
 
         public IActionResult RemoveCartItem(int id)
@@ -63,7 +74,7 @@ namespace Fiore.Controllers
             var list = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
             foreach (var item in list)
             {
-                if(item.Product.ProductId == id)
+                if (item.Product.ProductId == id)
                 {
                     list.Remove(item);
                     break;
@@ -74,7 +85,7 @@ namespace Fiore.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateQuantity( int id, int quantity)
+        public IActionResult UpdateQuantity(int id, int quantity)
         {
             List<CartItem> list = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
             if (list == null)
@@ -86,7 +97,7 @@ namespace Fiore.Controllers
                 if (item.Product.ProductId == id)
                 {
                     item.Quantity = quantity;
-                    item.Subtotal= item.Product.UnitPrice * quantity;   
+                    item.Subtotal = item.Product.UnitPrice * quantity;
                     break;
                 }
             }

@@ -28,19 +28,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark blank-nav-item"></a>
                         </li>
-                        <li class="nav-link ">
-                            Categories
-                            @* <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item"><a class="nav-link text-dark hide all"  asp-action="Index" asp-controller="Products"> All</a></li>
-                                <li class="nav-item"> <a class="nav-link text-dark green"  asp-action="Index" asp-controller="Home" asp-route-filtro="Green"> Green</a></li>
-                                <li class="nav-item"> <a class="nav-link text-dark cactus"  asp-action="Index" asp-controller="Home" asp-route-filtro="Cactus"> Cactus</a></li>
-                                <li class="nav-item"> <a class="nav-link text-dark winter"  asp-action="Index" asp-controller="Home" asp-route-filtro="Winter"> Winter</a></li>
-                                <li class="nav-item"> <a class="nav-link text-dark tulip"  asp-action="Index" asp-controller="Home" asp-route-filtro="Tulip"> Tulips</a></li>
-                                </ul>*@
-                        </li>
                        
+                        <li class="nav-link text-dark blank-nav-item">
+                            <a class="nav-link text-dark" asp-action="Index" asp-controller="Admin">Manage Users</a>
+                        </li>
+                        <li class="nav-link text-dark blank-nav-item">
+                            <a class="nav-link text-dark" asp-action="Index" asp-controller="Role">Manage Roles</a>
+                        </li>
+
                         <li>
-                        <li class="nav-item">
+                        <li class="nav-item text-dark blank-nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="ViewCart">View Cart</a>
 
                         </li>
@@ -61,11 +58,11 @@
             &copy; 2022 - Fiore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-   
+
     @await RenderSectionAsync("Scripts", required: false)
-    
-    <script type="text/javascript" src="~/js/bootstrap.js" ></script>
-    <script type="text/javascript" src="~/js/jquery.js" ></script>
-   
+
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+
 </body>
 </html>

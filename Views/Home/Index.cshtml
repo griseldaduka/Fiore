@@ -49,14 +49,14 @@
                         @if (@item.IsInCart)
                         {
                             <label class="hide qnt-lbl">Quantity:</label>
-                            <input type="number" value="1" min="1" class="qnt hide" />
+                            <input type="number" value="1" min="1" max="@item.UnitsInStock" class="qnt hide" />
                             <input type="button" value="Add to cart" class="add-to-cart hide" />
                             <a asp-action="ViewCart" class=" view-cart" asp-controller="ShoppingCart" id="viewcart">View Cart</a>
                         }
                         else
                         {
                             <label class="qnt-lbl">Quantity:</label>
-                            <input type="number" value="1" class="qnt" />
+                            <input type="number" value="1" max="@item.UnitsInStock" class="qnt" />
                             <input type="button" value="Add to cart" class="add-to-cart" />
                             <a asp-action="ViewCart" class="hide view-cart" asp-controller="ShoppingCart" id="viewcart">View Cart</a>
 

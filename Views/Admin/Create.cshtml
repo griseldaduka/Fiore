@@ -1,0 +1,25 @@
+﻿@model Fiore.Models.ViewModels.UserViewModel
+<form method="post" asp-controller="Admin" asp-action="CreateUserRole">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label>Id:</label>
+        <input asp-for="Id" readonly="readonly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Username:</label>
+        <input asp-for="UserName" readonly="readonly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Role"></label>
+        <select asp-for="Role" class="form-control" asp-items="ViewBag.Roles">
+        </select>
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+    <div class="py-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-secondary" asp-controller="Admin" asp-action="Index">
+            Kthehu
+            pas
+        </a>
+    </div>
+</form>
