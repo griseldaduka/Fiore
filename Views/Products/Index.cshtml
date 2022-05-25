@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Product>
+
+
+<div class="text-center">
+    <h1>Manage Products</h1>
+</div>
+<div>
+    <a asp-action="Create">Create new product</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Product Id
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Category Id
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Image Name
+            </th>
+            <th>
+                Unit Price
+            </th>
+            <th>
+                Units in Stock
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                Updated Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ProductId
+                </td>
+                <td>
+                    @item.ProductName
+                </td>
+                <td>
+                    @item.CategoryId
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.ImageName
+                </td>
+                <td>
+                    @item.UnitPrice
+                </td>
+                <td>
+                    @item.UnitsInStock
+                </td>
+                <td>
+                    @item.CreatedDate
+                </td>
+                <td>
+                    @item.UpdatedDate
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductId">Update product</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.ProductId">Delete product</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

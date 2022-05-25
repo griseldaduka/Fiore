@@ -24,7 +24,8 @@ namespace Fiore.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View();
+            var products = await _context.Products.ToListAsync();
+            return View(products);
         }
 
         // GET: Products/Details/5
