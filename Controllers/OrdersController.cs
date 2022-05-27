@@ -34,19 +34,23 @@ namespace Fiore.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Orders == null)
+            if (_context.Orders != null)
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    var lastOrder = _context.Orders.OrderByDescending(i => i.OrderId).FirstOrDefault();
+                    return View(lastOrder);
+                }
 
-            var order = await _context.Orders
-                .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (order == null)
-            {
-                return NotFound();
+                var order = await _context.Orders
+                    .FirstOrDefaultAsync(m => m.OrderId == id);
+                if (order == null)
+                {
+                    return NotFound();
+                }
+                return View(order);
             }
-
-            return View(order);
+            return NotFound();
         }
 
         [HttpGet]
@@ -59,7 +63,6 @@ namespace Fiore.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(OrderViewModel order)
         {
-
             if (ModelState.IsValid)
             {
                 var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
@@ -109,7 +112,7 @@ namespace Fiore.Controllers
                 HttpContext.Session.Remove("cart");
                 return RedirectToAction("Details", "Orders", new { id = actualOrder.OrderId });
             }
-            return View(order);
+            return RedirectToAction("Checkout", "ShoppingCart");
         }
     }
 }

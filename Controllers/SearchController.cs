@@ -17,6 +17,7 @@ namespace Fiore.Controllers
 
         public IActionResult Index(string keyword)
         {
+            ViewBag.Keyword = keyword;      
             var products = _context.Products.Include(i => i.Category)
                .Where(i => i.ProductName.Contains(keyword) || 
                            i.Description.Contains(keyword) || 
@@ -45,6 +46,7 @@ namespace Fiore.Controllers
                         CreatedDate = product.CreatedDate,
                         UpdatedDate = product.UpdatedDate,
                         IsInCart = isInCart,
+                        Category=product.Category,
                     });
                 }
             }

@@ -38,5 +38,6 @@ namespace Fiore.Models.ViewModels
         [DataType(DataType.DateTime)]
         public DateTime UpdatedDate { get; set; }
         public bool IsInCart { get; set; }
+        public Category Category { get; set; }  
     }
 }

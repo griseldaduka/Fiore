@@ -20,7 +20,6 @@ namespace Fiore.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-
             List<ProductViewModel> response = new List<ProductViewModel>();
             var entityProducts = _context.Products.Include(p => p.Category);
             var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
@@ -41,6 +40,7 @@ namespace Fiore.Controllers
                     CreatedDate = product.CreatedDate,
                     UpdatedDate = product.UpdatedDate,
                     IsInCart = isInCart,
+                    Category=product.Category,  
                 });
             }
 

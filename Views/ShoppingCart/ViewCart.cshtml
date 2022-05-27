@@ -1,84 +1,113 @@
 ﻿@model List<CartItem>
 
-
-<html>
-<body>
-    <div class=" text-center">
-        <a asp-action="Index" asp-controller="Home" class=" btn btn-default">Continue Shoping</a>
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                        <h1> Cart Details</h1>
+                        <div class="hero-btns">
+                            <a asp-action="Index" asp-controller="Home" class=" boxed-btn">Continue Shoping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    @if (Model != null && Model.Any())
-    {
-        decimal TotalPrice = 0;
-        <table class="table">
-            <tr>
-                <th>Product  </th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Subtotal</th>
-            </tr>
-            @foreach (var cartItem in Model)
-            {
-                TotalPrice = TotalPrice + @cartItem.Subtotal;
-                <tr>
-                    <td>
-                        @cartItem.Product.ProductName
-                    </td>
-                    <td>
-                        <input type="hidden" value="@cartItem.Product.ProductId" class="productid">
-                        <input type="number" min="1" value="@cartItem.Quantity" max="@cartItem.Product.UnitsInStock" class="newquantity">
-                    </td>
-                    <td>
-                        @cartItem.Product.UnitPrice
-                    </td>
 
-                    <td>
-                         @cartItem.Subtotal
-                    </td>
-                    <td>
-                        <a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                    </td>
+@if (Model != null && Model.Any())
+{
+    decimal TotalPrice = 0;
+    <div class="cart-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="cart-table-wrap">
+                        <table class="cart-table">
+                            <thead class="cart-table-head">
+                                <tr class="table-head-row">
+                                    <th class="product-remove"></th>
+                                    <th class="product-image">Product Image</th>
+                                    <th class="product-name">Name</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-total">Subotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var cartItem in Model)
+                                {
+                                    TotalPrice = TotalPrice + @cartItem.Subtotal;
 
-                </tr>
-            }
+                                    <tr class="table-body-row">
+                                        <td class="product-remove"><a asp-action="RemoveCartItem" asp-controller="ShoppingCart" asp-route-id="@cartItem.Product.ProductId"><i class="far fa-window-close"></i></a></td>
+                                        <td class="product-image"><img src="/img/Products/@cartItem.Product.Category.CategoryName/@cartItem.Product.ImageName" alt="@cartItem.Product.ImageName"></td>
+                                        <td class="product-name">@cartItem.Product.ProductName</td>
+                                        <td class="product-price">$@cartItem.Product.UnitPrice</td>
+                                        <td class="product-quantity">
+                                            <input type="hidden" value="@cartItem.Product.ProductId" class="productid">
+                                            <input type="number" min="1" max="@cartItem.Product.UnitsInStock" class="newquantity" value="@cartItem.Quantity">
+                                        </td>
+                                        <td class="product-total">@cartItem.Subtotal</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="total-section">
+                        <div class="cart-buttons">
+                            <h5 class="hero-text-tablecell"><b>Total Price: @TotalPrice</b></h5>
+                        </div><div class="cart-buttons">
+                            <a asp-action="Checkout" asp-controller="ShoppingCart" class="boxed-btn blac">Check Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="cart-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="cart-table-wrap">
+                        <h2>Empty shopping cart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
-        </table>
-        <p>Total Price: @TotalPrice</p>
-        <a asp-action="Checkout" asp-controller="ShoppingCart" class="btn btn-default"> Proceed to checkout</a>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    }
-    else
-    {
-        <p>Empty shopping cart</p>
-    }
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".newquantity").change(function(){
+            var qnt=$(this).val();
+            var productid=$(this).siblings(".productid").val();
+            console.log(qnt, productid);
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".newquantity").change(function(){
-                var qnt=$(this).val();
-                var productid=$(this).siblings(".productid").val();
-                console.log(qnt, productid);
-
-                $.ajax({
-                    type: 'POST',
-                    url: '/ShoppingCart/UpdateQuantity?id='+productid+'&quantity='+qnt,
-                    success: function (result) {
-                        location.reload(true);
-                    }
-                });
+            $.ajax({
+                type: 'POST',
+                url: '/ShoppingCart/UpdateQuantity?id='+productid+'&quantity='+qnt,
+                success: function (result) {
+                    location.reload(true);
+                }
             });
         });
-    </script>
-
-</body>
-</html>
+    });
+</script>

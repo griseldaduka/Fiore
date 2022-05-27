@@ -39,16 +39,78 @@ namespace Fiore.Controllers
             var product = await _context.Products
                 .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
 
-            return View(product);
+            if (product != null)
+            {
+                var response = new ProductViewModel();
+                var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
+                if (cartItems != null)
+                {
+                    foreach (var item in cartItems)
+                    {
+                        if (item.Product.ProductId == product.ProductId)
+                        {
+                            response=new ProductViewModel
+                            {
+                                ProductId = product.ProductId,
+                                CategoryId = product.CategoryId,
+                                ProductName = product.ProductName,
+                                Description = product.Description,
+                                ImageName = product.ImageName,
+                                UnitPrice = product.UnitPrice,
+                                UnitsInStock = product.UnitsInStock,
+                                CreatedDate = product.CreatedDate,
+                                UpdatedDate = product.UpdatedDate,
+                                IsInCart = true,
+                                Category = product.Category,
+                            };
+                        }
+                        else
+                        {
+                            response=new ProductViewModel
+                            {
+                                ProductId = product.ProductId,
+                                CategoryId = product.CategoryId,
+                                ProductName = product.ProductName,
+                                Description = product.Description,
+                                ImageName = product.ImageName,
+                                UnitPrice = product.UnitPrice,
+                                UnitsInStock = product.UnitsInStock,
+                                CreatedDate = product.CreatedDate,
+                                UpdatedDate = product.UpdatedDate,
+                                IsInCart = false,
+                                Category = product.Category,
+                            };
+                        }
+                    }
+                    return View(response);
+                }
+                else
+                {
+                    response=new ProductViewModel
+                    {
+                        ProductId = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        ProductName = product.ProductName,
+                        Description = product.Description,
+                        ImageName = product.ImageName,
+                        UnitPrice = product.UnitPrice,
+                        UnitsInStock = product.UnitsInStock,
+                        CreatedDate = product.CreatedDate,
+                        UpdatedDate = product.UpdatedDate,
+                        IsInCart = false,
+                        Category = product.Category,
+                    };
+                    return View(response);
+                }
+            }
+            return BadRequest("Product Not Found");
         }
 
 
-        [Authorize(Roles ="Admin")]
+
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
@@ -59,7 +121,7 @@ namespace Fiore.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create([Bind("CategoryId, ProductName,  Description , Image ,UnitPrice, UnitsInStock")] ProductPostViewModel product)
+        public async Task<ActionResult> Create([Bind("CategoryId, ProductName,  Description , Image ,UnitPrice, UnitsInStock")] AddressPostViewModel product)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +138,7 @@ namespace Fiore.Controllers
                 string fileName = product.Image.FileName;
                 string fileNameWithPath = Path.Combine(path, fileName);
 
-               
+
                 _context.Products.Add(new Product
                 {
                     CategoryId = product.CategoryId,
@@ -122,7 +184,7 @@ namespace Fiore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, ProductViewModel product)
         {
             var existingProduct = await _context.Products.FindAsync(id);
@@ -165,7 +227,7 @@ namespace Fiore.Controllers
             return View(product);
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)
@@ -186,7 +248,7 @@ namespace Fiore.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Products == null)

@@ -48,10 +48,11 @@ namespace Fiore.Controllers
                 var products = _context.Products.First(i => i.ProductId == oproduct.ProductId);
                 orderProductsList.Add(new OrderProductsViewModel
                 {
+                    ImageName=products.ImageName,
                     ProductName = products.ProductName,
                     Quantity = oproduct.Quantity,
                     UnitPrice=oproduct.UnitPrice,
-                    SubtotalPrice = (oproduct.Quantity) * (oproduct.UnitPrice)
+                    Subtotal = (oproduct.Quantity) * (oproduct.UnitPrice)
                 }) ;
             }
             return View(orderProductsList);

@@ -1,61 +1,121 @@
-﻿@model Fiore.Models.Order
+﻿@using System.Collections.Generic
+@using Fiore.Models.ViewModels
+@model Fiore.Models.Order
 
-@{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                        <h1>Order Details</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h1> Your Order </h1>
 
-<div class=text-center>
+<div class="cart-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12" style="margin-left:auto; margin-right:auto">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                                <th class="product-image"><b>Order Date</b></th>
+                                <th class="product-name"><b>Total Price</b></th>
+                                <th class="product-price"><b>House Number</b></th>
+                                <th class="product-quantity"><b>Street</b> </th>
+                                <th class="product-total"><b>City</b></th>
+                                <th class="product-total"><b>Country</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-body-row">
+                                <td class="product-name">@Model.OrderDate</td>
+                                <td class="product-price">$@Model.TotalPrice</td>
+                                <td class="product-total">@Model.HouseNumber</td>
+                                <td class="product-total">@Model.StreetName</td>
+                                <td class="product-total">@Model.CityName</td>
+                                <td class="product-total">@Model.CountryName</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center" style="margin-top:20px">
+                        <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View order products</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@*<div class=text-center>
     <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    OrderDate
-                </th>
-                <th>
-                    TotalPrice
-                </th>
-                <th>
-                    HouseNumber
-                </th>
-                <th>
-                    StreetName
-                </th>
-                <th>
-                    CityName
-                </th>
-                <th>
-                    CountryName
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+    <thead>
+    <tr>
+    <th>
+    OrderDate
+    </th>
+    <th>
+    TotalPrice
+    </th>
+    <th>
+    HouseNumber
+    </th>
+    <th>
+    StreetName
+    </th>
+    <th>
+    CityName
+    </th>
+    <th>
+    CountryName
+    </th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
 
-            <tr>
-                <td>
-                    @Model.OrderDate
-                </td>
-                <td>
-                    @Model.TotalPrice
-                </td>
-                <td>
-                    @Model.HouseNumber
-                </td>
-                <td>
-                    @Model.StreetName
-                </td>
-                <td>
-                    @Model.CityName
-                </td>
-                <td>
-                    @Model.CountryName
-                </td>
-            </tr>
-        </tbody>
+    <tr>
+    <td>
+    @Model.OrderDate
+    </td>
+    <td>
+    @Model.TotalPrice
+    </td>
+    <td>
+    @Model.HouseNumber
+    </td>
+    <td>
+    @Model.StreetName
+    </td>
+    <td>
+    @Model.CityName
+    </td>
+    <td>
+    @Model.CountryName
+    </td>
+    </tr>
+    </tbody>
     </table>
 
     <a asp-action="OrderProducts" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View Order Details</a>
-</div>
+    </div>
+*@

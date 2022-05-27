@@ -11,7 +11,7 @@
     <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>Fruitkha</title>
+    <title>Fiore</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/css/meanmenu.min.css">
     <!-- main style -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
     <!-- responsive -->
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="~/Fiore.styles.css" asp-append-version="true" />
@@ -54,7 +55,7 @@
                 <div class="col-lg-12 col-sm-12 text-center">
                     <div class="main-menu-wrap">
                         <!-- logo -->
-                        <div class="site-logo">
+                        <div class="site-logo" style="margin-top:0px">
                             <a asp-action="Index" asp-controller="Home">
                                 <img src="/img/Fiore 4.png" />
                             </a>
@@ -63,13 +64,6 @@
                         <!-- menu start -->
                         <nav class="main-menu">
                             <ul>
-                                @*<li class="current-list-item">
-                                    <a href="#">Home</a>
-                                    <ul class="sub-menu">
-                                    <li><a href="index.html">Static Home</a></li>
-                                    <li><a href="index_2.html">Slider Home</a></li>
-                                    </ul>
-                                    </li>*@
                                 <li>
                                     <a href="#">Admin</a>
                                     <ul class="sub-menu">
@@ -78,18 +72,6 @@
                                         <li><a asp-action="Index" asp-controller="Products">Manage Products</a></li>
                                         <li><a asp-action="Index" asp-controller="Categories">Manage Categories</a></li>
                                         <li><a asp-action="AllOrders" asp-controller="Orders">All Orders</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="404.html">404 page</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="checkout.html">Check Out</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="news.html">News</a></li>
-                                        <li><a href="shop.html">Shop</a></li>
                                     </ul>
                                 </li>
 
@@ -103,6 +85,14 @@
                                         <li><a asp-action="Checkout" asp-controller="ShoppingCart">Check Out</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a asp-action="UserOrders" asp-controller="Orders">My Orders</a>
+                                    <ul class="sub-menu">
+                                        <li><a asp-action="UserOrders" asp-controller="Orders">All Orders</a></li>
+                                        <li><a asp-action="Details" asp-controller="Orders">Last Order</a></li>
+                                    </ul>
+                                </li>
+
                                 <li>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
                                 </li>
@@ -132,8 +122,8 @@
                     <div class="search-bar">
                         <div class="search-bar-tablecell">
                             <h3>Search For:</h3>
-                            <input type="text" placeholder="Keywords">
-                            <button type="submit">Search <i class="fas fa-search"></i></button>
+                            <input type="text" placeholder="Keywords" class="keyword">
+                            <button type="submit" id="search">Search <i class="fas fa-search"></i></button>
                         </div>
                     </div>
                 </div>
@@ -142,7 +132,7 @@
     </div>
     <!-- end search area -->
     <!-- hero area -->
-     <div class="hero-area hero-bg">
+    @*   <div class="hero-area hero-bg">
         <div class="container">
         <div class="row">
         <div class="col-lg-9 offset-lg-2 text-center">
@@ -159,13 +149,9 @@
         </div>
         </div>
         </div>
-        </div>
-
-    @* <div class="container">
-        <main role="main" class="pb-3">*@
-    @RenderBody()
-    @*     </main>
         </div>*@
+    @RenderBody()
+
 
     <div class="footer-area">
         <div class="container">
@@ -254,6 +240,14 @@
     <script src="/js/sticker.js"></script>
     <!-- main js -->
     <script src="/js/main.js"></script>
+    <script>
+        $('#search').click(function(){
+                var keyword = $(".keyword").val();
+                console.log(keyword);
+
+                window.location.assign("https://localhost:7258/Search/Index?keyword=" + keyword);
+            });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>

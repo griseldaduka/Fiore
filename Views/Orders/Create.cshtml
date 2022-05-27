@@ -1,42 +1,53 @@
 ﻿@model Fiore.Models.ViewModels.OrderViewModel
 
-<h4>Please enter your address below</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div  asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="HouseNumber" class="control-label"></label>
-                <input asp-for="HouseNumber" class="form-control" />
-                <span asp-validation-for="HouseNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StreetName" class="control-label"></label>
-                <input asp-for="StreetName" class="form-control" />
-                <span asp-validation-for="StreetName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CityName" class="control-label"></label>
-                <input asp-for="CityName" class="form-control" />
-                <span asp-validation-for="CityName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CountryName" class="control-label"></label>
-                <input asp-for="CountryName" class="form-control" />
-                <span asp-validation-for="CountryName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+<div class="card-header" id="headingOne">
+    <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Billing Address
+        </button>
+    </h5>
+</div>
+
+<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div class="card-body">
+        <div class="billing-address-form">
+            <form asp-action="Create" asp-controller="Orders" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div>
+                    <label asp-for="HouseNumber" class="control-label"></label>
+                    <input asp-for="HouseNumber" class="form-control" />
+                    <span asp-validation-for="HouseNumber" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label asp-for="StreetName" class="control-label"></label>
+                    <input asp-for="StreetName" class="form-control" />
+                    <span asp-validation-for="StreetName" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="CityName" class="control-label"></label>
+                    <input asp-for="CityName" class="form-control" />
+                    <span asp-validation-for="CityName" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="CountryName" class="control-label"></label>
+                    <input asp-for="CountryName" class="form-control" />
+                    <span asp-validation-for="CountryName" class="text-danger"></span>
+                </div>
+                <div style="margin-top:50px" class="text-center">
+                    <input type="submit" value="Place Order" class="boxed-btn" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }

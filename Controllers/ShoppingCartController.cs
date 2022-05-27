@@ -2,6 +2,7 @@
 using Fiore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fiore.Controllers
 {
@@ -24,7 +25,7 @@ namespace Fiore.Controllers
         [HttpPost]
         public IActionResult AddCartItem(int id, int quantity)
         {
-            var product = _context.Products.Find(id);
+            var product = _context.Products.Include(p=>p.Category).First(i=>i.ProductId==id);
             if (product == null)
             {
                 return NotFound();
@@ -38,7 +39,7 @@ namespace Fiore.Controllers
 
                 if (product.UnitsInStock - quantity < 0)
                 {
-                    return BadRequest("The quantity per this product is over units in stock");
+                    return BadRequest("Selected quantity for this product is over units in stock");
                 }
 
                 if (HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart") == null)

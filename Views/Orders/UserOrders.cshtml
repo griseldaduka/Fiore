@@ -1,71 +1,92 @@
 ﻿@model IEnumerable<Fiore.Models.Order>
-
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var count = 1;
 }
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                        <p class="subtitle">Earth laughs in flowers</p>
+                        <h1> All Order Details</h1>
+                        <div class="hero-btns">
+                            <a href="shop.html" class="boxed-btn">Fruit Collection</a>
+                            <a href="contact.html" class="bordered-btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cart-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12" style="margin-left:auto; margin-right:auto">
+                <div class="cart-table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nr
+                                </th>
+                                <th>
+                                    OrderDate
+                                </th>
+                                <th>
+                                    HouseNumber
+                                </th>
+                                <th>
+                                    StreetName
+                                </th>
+                                <th>
+                                    CityName
+                                </th>
+                                <th>
+                                    CountryName
+                                </th>
+                                <th>
+                                    TotalPrice
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <b>@count</b>
+                                    </td>
+                                    <td>
+                                        @item.OrderDate
+                                    </td>
+                                    <td>
+                                        @item.HouseNumber
+                                    </td>
+                                    <td>
+                                        @item.StreetName
+                                    </td>
+                                    <td>
+                                        @item.CityName
+                                    </td>
+                                    <td>
+                                        @item.CountryName
+                                    </td>
+                                    <td>
+                                        @item.TotalPrice
+                                    </td>
+                                    <td >
+                                        <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@item.OrderId">View order products</a>
+                                    </td>
 
-<h1>Your orders</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Nr.
-            </th>
-            <th>
-                OrderDate
-            </th>
-            <th>
-                HouseNumber
-            </th>
-            <th>
-                StreetName
-            </th>
-            <th>
-                CityName
-            </th>
-            <th>
-                CountryName
-            </th>
-            <th>
-                TotalPrice
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            var count=1;
-          }
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @count
-                </td>
-                <td>
-                    @item.OrderDate
-                </td>
-                <td>
-                    @item.HouseNumber
-                </td>
-                <td>
-                    @item.StreetName
-                </td>
-                <td>
-                    @item.CityName
-                </td>
-                <td>
-                    @item.CountryName
-                </td>
-                <td>
-                    @item.TotalPrice
-                </td>
-                <td>
-                    <a asp-action="OrderProducts"  asp-controller="ProductOrderDetails" asp-route-id="@item.OrderId">View order details</a>
-                </td>
-                @count=@count+1;
-            </tr>
-        }
-    </tbody>
-</table>
+                                </tr>
+                                count = count + 1;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

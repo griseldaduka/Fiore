@@ -1,46 +1,88 @@
 ﻿@model IEnumerable<Fiore.Models.ViewModels.OrderProductsViewModel>
 
-<html>
-<body>
-    <h3 class="text-center">Your order products</h3>
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Your Order Products</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="checkout-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4" style="margin-left:auto; margin-right:auto">
+                <div class="order-details-wrap">
+                    <table class="order-details">
+                        <thead>
+                            <tr>
+                                <th class="text-center" colspan="5"><b>Your order products</b></th>
+                            </tr>
+                        </thead>
+                        <tbody class="order-details-body">
+                            <tr>
+                                <td>Product Name </td>
+                                <td>Unit Price</td>
+                                <td>Quantity</td>
+                                <td>Subtotal</td>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ProductName</td>
+                                    <td>$@item.UnitPrice</td>
+                                    <td>@item.Quantity</td>
+                                    <td>$S@item.Subtotal</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<h3 class="text-center">Your order products</h3>
     <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    ProductName
-                </th>
+    <thead>
+    <tr>
+    <th>
+    ProductName
+    </th>
 
-                <th>
-                    UnitPrice
-                </th>
-                <th>
-                    Quantity
-                </th>
-                <th>
-                    Subtotal
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @item.ProductName
-                    </td>
-                    <td>
-                        @item.UnitPrice
-                    </td>
-                    <td>
-                        @item.Quantity
-                    </td>
-                    <td>
-                        @item.SubtotalPrice
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-</body>
-</html>
+    <th>
+    UnitPrice
+    </th>
+    <th>
+    Quantity
+    </th>
+    <th>
+    Subtotal
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+    <td>
+    @item.ProductName
+    </td>
+    <td>
+    @item.UnitPrice
+    </td>
+    <td>
+    @item.Quantity
+    </td>
+    <td>
+    @item.SubtotalPrice
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>*@
