@@ -49,6 +49,37 @@ namespace Fiore.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<ActionResult> DeleteUserRole(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return BadRequest("User not found");
+            }
+            var model = new UserViewModel
+            {
+                UserName = user.UserName
+            };
+            var roles = RoleManager.Roles;
+            ViewBag.Roles = new SelectList(roles.ToList(), "Id", "Name");
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteUserRole(UserViewModel usermodel)
+        {
+            var name = Convert.ToString(await RoleManager.FindByIdAsync(usermodel.Role));
+            var user = await UserManager.FindByIdAsync(usermodel.Id);
+            if (user == null)
+            {
+                return BadRequest("User not found" + name);
+            }
+            await UserManager.RemoveFromRoleAsync(user, name);
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateUserRole(UserViewModel usermodel)
@@ -109,7 +140,7 @@ namespace Fiore.Controllers
             }
         }
 
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> DeleteUser(string id)
         {
             ApplicationUser user = await UserManager.FindByIdAsync(id);
             if (user != null)

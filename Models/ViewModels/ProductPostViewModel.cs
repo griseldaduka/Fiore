@@ -2,7 +2,7 @@
 
 namespace Fiore.Models.ViewModels
 {
-    public class AddressPostViewModel
+    public class ProductPostViewModel
     {
         public int CategoryId { get; set; }
 

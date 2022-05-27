@@ -1,4 +1,4 @@
-﻿@*@using Fiore.Data
+﻿@using Fiore.Data
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -10,9 +10,10 @@
 else
 {
     Layout = "_Layout";
-}*@
-
-
-@{
-    Layout = "_Layout";
 }
+
+
+@*@{
+    Layout = "AdminLayout";
+    //Layout = "_Layout";
+}*@

@@ -36,19 +36,19 @@
                         <h3>@cartItem.ProductName</h3>
                         <p class="product-price"><span>@cartItem.Category.CategoryName</span>@cartItem.UnitPrice $</p>
                         <input type="hidden" value="@cartItem.ProductId" class="productid" />
-                        @if (@cartItem.IsInCart)
+                         @if (@cartItem.IsInCart)
                         {
-                            <label class=" qnt-lbl hide">Quantity:</label>
-                            <input type="number" value="1" min="1" max="@cartItem.UnitsInStock" class="qnt hide" />
+
+                            @*<label class=" qnt-lbl hide">Quantity:</label>*@
+                            @*<input type="number" value="1" min="1" max="@cartItem.UnitsInStock" class="qnt hide" />*@
                             <a class="cart-btn add-to-cart hide"><i class="fas fa-shopping-cart"></i>Add to cart</a>
                             <a asp-action="ViewCart" class="cart-btn view-cart" asp-controller="ShoppingCart">View Cart</a>
                         }
                         else
                         {
-                            <label class="qnt-lbl">Quantity:</label>
-                            <input type="number" value="1" min="1" max="@cartItem.UnitsInStock" class="qnt" />
-                            <a class="cart-btn add-to-cart ">Add to cart</a>
-
+                            @*<label style="margin-left:auto; margin-right:auto; margin-bottom:5px" class="qnt-lbl">Quantity:</label>*@
+                            @*<input style="margin-left:auto; margin-right:auto; margin-bottom:5px" type="number" value="1" min="1" max="@cartItem.UnitsInStock" class="qnt" />*@
+                            <a style="margin-left:auto; margin-right:auto;margin-top:5px; margin-bottom:15px" class="cart-btn add-to-cart ">Add to cart</a>
                             <a asp-action="ViewCart" class="cart-btn view-cart hide" asp-controller="ShoppingCart">View Cart</a>
                         }
                         <a class="cart-btn" asp-action="Details" asp-controller="Products" asp-route-id="@cartItem.ProductId">Product Details</a>
@@ -72,8 +72,8 @@
             var productid= $(this).siblings('.productid').val();
             var qnt= $(this).siblings('.qnt').val();
             $(this).siblings('.view-cart').show();
-            $(this).siblings('.qnt').hide();
-            $(this).siblings('.qnt-lbl').hide();
+            //$(this).siblings('.qnt').hide();
+            //$(this).siblings('.qnt-lbl').hide();
             $(this).hide();
 
             $.ajax({

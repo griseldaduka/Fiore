@@ -65,7 +65,7 @@ namespace Fiore.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Create(OrderViewModel order)
+        public async Task<IActionResult> Create(AddressViewModel order)
         {
             if (ModelState.IsValid)
             {

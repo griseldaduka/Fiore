@@ -109,7 +109,7 @@ namespace Fiore.Controllers
 
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
@@ -119,8 +119,8 @@ namespace Fiore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create([Bind("CategoryId, ProductName,  Description , Image ,UnitPrice, UnitsInStock")] AddressPostViewModel product)
+        //[Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Create([Bind("CategoryId, ProductName,  Description , Image ,UnitPrice, UnitsInStock")] ProductPostViewModel product)
         {
             if (ModelState.IsValid)
             {
@@ -162,7 +162,7 @@ namespace Fiore.Controllers
 
             return View(product);
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -183,7 +183,7 @@ namespace Fiore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, ProductViewModel product)
         {
             var existingProduct = await _context.Products.FindAsync(id);
@@ -226,7 +226,7 @@ namespace Fiore.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)
@@ -247,7 +247,7 @@ namespace Fiore.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Products == null)

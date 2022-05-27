@@ -38,7 +38,7 @@ namespace Fiore.Controllers
         }
 
 
-
+        [HttpGet]
         public async Task<IActionResult> OrderProducts(int orderId)
         {
             List<OrderProductsViewModel> orderProductsList = new List<OrderProductsViewModel>();

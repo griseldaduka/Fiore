@@ -2,7 +2,7 @@
 
 namespace Fiore.Models.ViewModels
 {
-    public class OrderViewModel
+    public class AddressViewModel
     {
 
         [Required]
