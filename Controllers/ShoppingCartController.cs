@@ -1,5 +1,6 @@
 ﻿using Fiore.Data;
 using Fiore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -107,6 +108,7 @@ namespace Fiore.Controllers
             return RedirectToAction("ViewCart");
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Checkout()
         {

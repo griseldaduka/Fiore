@@ -5,6 +5,7 @@ using Fiore.Data;
 using Fiore.Models.ViewModels;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiore.Controllers
 {
@@ -20,25 +21,28 @@ namespace Fiore.Controllers
 
         }
 
-        //Admin Authorization
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> AllOrders()
         {
             return View(await _context.Orders.ToListAsync());
         }
 
+        [Authorize]
         public async Task<IActionResult> UserOrders()
         {
             var userId = _userManager.GetUserId(User);
             return View(await _context.Orders.Where(i => i.UserId == userId).ToListAsync());
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
+            var userId = _userManager.GetUserId(User);
             if (_context.Orders != null)
             {
                 if (id == null)
                 {
-                    var lastOrder = _context.Orders.OrderByDescending(i => i.OrderId).FirstOrDefault();
+                    var lastOrder = _context.Orders.OrderByDescending(i => i.OrderId).FirstOrDefault(u=>u.UserId==userId);
                     return View(lastOrder);
                 }
 
@@ -52,14 +56,14 @@ namespace Fiore.Controllers
             }
             return NotFound();
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(OrderViewModel order)
         {

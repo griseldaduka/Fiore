@@ -1,25 +1,67 @@
 ﻿@model Fiore.Models.ViewModels.UserViewModel
-<form method="post" asp-controller="Admin" asp-action="CreateUserRole">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label>Id:</label>
-        <input asp-for="Id" readonly="readonly" class="form-control" />
+
+
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                        <h1>Add User Role</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Username:</label>
-        <input asp-for="UserName" readonly="readonly" class="form-control" />
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="checkout-accordion-wrap">
+                <div class="accordion" id="accordionExample">
+                    <div class="card single-accordion">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Add User Role
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="billing-address-form">
+                                    <form method="post" asp-controller="Admin" asp-action="CreateUserRole">
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                        <div>
+                                            <label>Id:</label>
+                                            <input asp-for="Id" readonly="readonly" class="form-control" />
+                                        </div>
+                                        <div>
+                                            <label>Username:</label>
+                                            <input asp-for="UserName" readonly="readonly" class="form-control" />
+                                        </div>
+                                        <div>
+                                            <label asp-for="Role"></label>
+                                            <select asp-for="Role" class="form-control" asp-items="ViewBag.Roles">
+                                            </select>
+                                            <span asp-validation-for="Role" class="text-danger"></span>
+                                        </div>
+                                        <div class="py-2">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <a class="btn btn-secondary" asp-controller="Admin" asp-action="Index">
+                                                Back
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Role"></label>
-        <select asp-for="Role" class="form-control" asp-items="ViewBag.Roles">
-        </select>
-        <span asp-validation-for="Role" class="text-danger"></span>
-    </div>
-    <div class="py-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a class="btn btn-secondary" asp-controller="Admin" asp-action="Index">
-            Kthehu
-            pas
-        </a>
-    </div>
-</form>
+</div>
+

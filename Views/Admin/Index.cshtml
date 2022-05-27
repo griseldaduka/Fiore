@@ -1,41 +1,64 @@
 ﻿@model IEnumerable<Fiore.Models.ViewModels.UserViewModel>
-<h3>Users Management</h3>
-<table class="table table-sm table-bordered">
-    <tr>
-        <th>Emri</th>
-        <th>Email</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Roli</th>
-        <th>Veprime</th>
-    </tr>
-    @if (Model.Count() == 0)
-    {
-        <tr><td colspan="4" class="text-center">Users not found</td></tr>
-    }
-    else
-    {
-        foreach (var user in Model)
-        {
+
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                        <p class="subtitle">Add roles to user</p>
+                        <h1> User Management</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-section mt-150 mb-150">
+    <div class="container" style="width:80%; margin-top:50px; margin-bottom:50px">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="orange-text">All</span> Users</h3>
+                    <p>You can Edit, Delete and add role to users</p>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-sm table-bordered">
             <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-                <td>@user.FirstName</td>
-                <td>@user.LastName</td>
-                <td>@user.Role</td>
-                <td class="text-center">
-                    <form method="post" asp-controller="Admin" asp-action="Delete">
-                        <input type="hidden" name="Id" value="@user.Id" />
-                        <a class="btn btn-sm btn-primary" asp-controller="Admin"
-                   asp-route-id="@user.Id" asp-action="Create">Shto Rol</a>
-                        <a class="btn btn-sm btn-warning" asp-controller="Admin"
-                   asp-route-id="@user.Id" asp-action="ShowEdit">Modifiko</a>
-                        <button type="submit" class="btn btn-sm btn-danger">
-                            Fshi
-                        </button>
-                    </form>
-                </td>
+                <th class="text-center">Username</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">First Name</th>
+                <th class="text-center">Last Name</th>
+                <th class="text-center">Role</th>
+                <th class="text-center">Manage</th>
             </tr>
-        }
-    }
-</table>
+            @if (Model.Count() == 0)
+            {
+                <tr><td colspan="4" class="text-center">Users not found</td></tr>
+            }
+            else
+            {
+                foreach (var user in Model)
+                {
+                    <tr>
+                        <td class="text-center">@user.UserName</td>
+                        <td class="text-center">@user.Email</td>
+                        <td class="text-center">@user.FirstName</td>
+                        <td class="text-center">@user.LastName</td>
+                        <td class="text-center">@user.Role</td>
+                        <td class="text-center">
+                            <form method="post" asp-controller="Admin" asp-action="Delete">
+                                <input type="hidden" name="Id" value="@user.Id" />
+                                <a class="btn btn-sm btn-primary" asp-controller="Admin" asp-route-id="@user.Id" asp-action="Create">Add Role</a>
+                                <a class="btn btn-sm btn-warning" asp-controller="Admin" asp-route-id="@user.Id" asp-action="ShowEdit">Edit</a>
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

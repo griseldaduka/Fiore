@@ -11,40 +11,40 @@
         </div>
     </div>
 </div>
-<div class="checkout-section mt-150 mb-150">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4" style="margin-left:auto; margin-right:auto">
-                <div class="order-details-wrap">
-                    <table class="order-details">
-                        <thead>
-                            <tr>
-                                <th class="text-center" colspan="5"><b>Your order products</b></th>
-                            </tr>
-                        </thead>
-                        <tbody class="order-details-body">
-                            <tr>
-                                <td>Product Name </td>
-                                <td>Unit Price</td>
-                                <td>Quantity</td>
-                                <td>Subtotal</td>
-                            </tr>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.ProductName</td>
-                                    <td>$@item.UnitPrice</td>
-                                    <td>@item.Quantity</td>
-                                    <td>$S@item.Subtotal</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+<div class="container" style="width:80%;margin-top:50px; margin-bottom:50px">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+                <h3><span class="orange-text">Order</span> Productd</h3>
             </div>
         </div>
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="5"><b>Your order products</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product Name </td>
+                    <td>Unit Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>$@item.UnitPrice</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Subtotal $</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
+
 
 
 @*<h3 class="text-center">Your order products</h3>

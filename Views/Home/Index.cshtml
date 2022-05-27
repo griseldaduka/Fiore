@@ -8,18 +8,17 @@
                     <div class="hero-text-tablecell">
                         <p class="subtitle">Earth laughs in flowers</p>
                         <h1> Stop and smell the roses</h1>
-                        <div class="hero-btns">
-                            <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                            <a href="contact.html" class="bordered-btn">Contact Us</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- product section -->
 <div class="product-section mt-150 mb-150">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
@@ -29,7 +28,14 @@
                 </div>
             </div>
         </div>
-
+        <div style="width:90%; display:inline-flex; margin-left:auto; margin-right:auto; margin-bottom:30px">
+           
+            <a class="cart-btn asc" style="margin-left:10px" asp-action="Index" asp-route-order="asc">Ascending Price Order</a>
+            <div>
+            <a class="cart-btn dsc" style="margin-left:10px" asp-action="Index" asp-route-order="dsc">Descending Price Order</a>
+            </div>
+           
+        </div>
         <div class="row">
             @foreach (var cartItem in Model)
             {
@@ -39,7 +45,7 @@
                             <img src="~/img/Products/@cartItem.Category.CategoryName/@cartItem.ImageName" alt="">
                         </div>
                         <h3>@cartItem.ProductName</h3>
-                        <p class="product-price"><span>$@cartItem.Category.CategoryName</span>@cartItem.UnitPrice </p>
+                        <p class="product-price"><span>@cartItem.Category.CategoryName</span>$@cartItem.UnitPrice </p>
                         <input type="hidden" value="@cartItem.ProductId" class="productid" />
 
                         @if (@cartItem.IsInCart)
@@ -72,6 +78,30 @@
 
 <script type="text/javascript">
 
+    //$(document).ready(function(){
+    //    $(".asc").click(function(){
+    //        var order="asc";
+    //       $.ajax({
+    //        type: 'Get',
+    //        url: '/Home/Index?order='+order,
+    //        success: function (result) {
+    //            alert('Successfully received Data ');
+    //            }
+    //        });
+    //    });
+
+    //    $(".dsc").click(function(){
+    //        var order="dsc";
+    //       $.ajax({
+    //        type: 'Get',
+    //        url: '/Home/Index?order='+order,
+    //        success: function (result) {
+    //            alert('Successfully received Data ');
+    //            }
+    //        });
+    //    });
+
+    //});
     @* function Filter(){
         var filter=$(".filter").val();
         console.log(filter);

@@ -18,33 +18,81 @@ namespace Fiore.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string? order)
         {
-            List<ProductViewModel> response = new List<ProductViewModel>();
-            var entityProducts = _context.Products.Include(p => p.Category);
+
+            var response = new List<ProductViewModel>();
             var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
 
-            foreach (var product in entityProducts)
+            if (order == "asc")
             {
-                var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
-
-                response.Add(new ProductViewModel
+                var entityProducts =  _context.Products.Include(p => p.Category).OrderBy(u => u.UnitPrice);
+                foreach (var product in entityProducts)
                 {
-                    ProductId = product.ProductId,
-                    CategoryId = product.CategoryId,
-                    ProductName = product.ProductName,
-                    Description = product.Description,
-                    ImageName = product.ImageName,
-                    UnitPrice = product.UnitPrice,
-                    UnitsInStock = product.UnitsInStock,
-                    CreatedDate = product.CreatedDate,
-                    UpdatedDate = product.UpdatedDate,
-                    IsInCart = isInCart,
-                    Category=product.Category,  
-                });
+                    var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
+                    response.Add(new ProductViewModel
+                    {
+                        ProductId = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        ProductName = product.ProductName,
+                        Description = product.Description,
+                        ImageName = product.ImageName,
+                        UnitPrice = product.UnitPrice,
+                        UnitsInStock = product.UnitsInStock,
+                        CreatedDate = product.CreatedDate,
+                        UpdatedDate = product.UpdatedDate,
+                        IsInCart = isInCart,
+                        Category = product.Category,
+                    });
+                }
+                return View(response);
             }
-
-            return View(response);
+            else if (order == "dsc")
+            {
+                var entityProducts = _context.Products.Include(p => p.Category).OrderByDescending(u => u.UnitPrice);
+                foreach (var product in entityProducts)
+                {
+                    var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
+                    response.Add(new ProductViewModel
+                    {
+                        ProductId = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        ProductName = product.ProductName,
+                        Description = product.Description,
+                        ImageName = product.ImageName,
+                        UnitPrice = product.UnitPrice,
+                        UnitsInStock = product.UnitsInStock,
+                        CreatedDate = product.CreatedDate,
+                        UpdatedDate = product.UpdatedDate,
+                        IsInCart = isInCart,
+                        Category = product.Category,
+                    });
+                }
+                return View(response);
+            }
+            else
+            {
+                var entityProducts = _context.Products.Include(p => p.Category);
+                foreach (var product in entityProducts)
+                {
+                    var isInCart = cartItems == null ? false : cartItems.Any(i => i.Product.ProductId == product.ProductId);
+                    response.Add(new ProductViewModel
+                    {
+                        ProductId = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        ProductName = product.ProductName,
+                        Description = product.Description,
+                        ImageName = product.ImageName,
+                        UnitPrice = product.UnitPrice,
+                        UnitsInStock = product.UnitsInStock,
+                        CreatedDate = product.CreatedDate,
+                        UpdatedDate = product.UpdatedDate,
+                        IsInCart = isInCart,
+                        Category = product.Category,
+                    });
+                }
+                return View(response);
+            }
         }
     }
 }

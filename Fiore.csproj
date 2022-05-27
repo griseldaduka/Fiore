@@ -8,28 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\img\Products\Cactus\African ocotillo cactus.jpg" />
-    <None Include="wwwroot\img\Products\Cactus\Barrel cactus.jpg" />
-    <None Include="wwwroot\img\Products\Cactus\Candle cactus.png" />
     <None Include="wwwroot\img\Products\Cactus\Prickly pear cactus.jpg" />
-    <None Include="wwwroot\img\Products\Cactus\Silver torch cactus.jpg" />
     <None Include="wwwroot\img\Products\Green\Foxglove.jpg" />
-    <None Include="wwwroot\img\Products\Green\Majesty palm.jpg" />
     <None Include="wwwroot\img\Products\Green\Rock soapwort.jpg" />
     <None Include="wwwroot\img\Products\Green\Scarlet sage.jpg" />
-    <None Include="wwwroot\img\Products\Green\Spring snowflake.jpg" />
-    <None Include="wwwroot\img\Products\Green\Sweet alyssum.jpg" />
-    <None Include="wwwroot\img\Products\Tulip\Black Tulip.jpg" />
-    <None Include="wwwroot\img\Products\Tulip\Double tulips.jpg" />
-    <None Include="wwwroot\img\Products\Tulip\Fringed red tulips.jpg" />
-    <None Include="wwwroot\img\Products\Tulip\Parrot tulips.jpg" />
-    <None Include="wwwroot\img\Products\Tulip\Triumph tulips.jfif" />
-    <None Include="wwwroot\img\Products\Winter\Camellia.jpg" />
-    <None Include="wwwroot\img\Products\Winter\Cyclamen.jpg" />
-    <None Include="wwwroot\img\Products\Winter\Glory of the snow.jpg" />
-    <None Include="wwwroot\img\Products\Winter\Pansies and Volas.jpg" />
     <None Include="wwwroot\img\Products\Winter\Snowdrops.jpg" />
-    <None Include="wwwroot\img\Products\Winter\Winter Jasmine.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Dashboard\" />
+    <Folder Include="wwwroot\img\Products\Tulip\" />
   </ItemGroup>
 
 </Project>

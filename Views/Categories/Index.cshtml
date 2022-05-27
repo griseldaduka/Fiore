@@ -1,36 +1,58 @@
 ﻿@model IEnumerable<Category>
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+                        <h1> Category Management</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-section mt-150 mb-150">
+    <div class="container" style="width:80%; margin-top:50px; margin-bottom:50px">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="orange-text">All</span> Categories</h3>
+                    <p>You can Create, Edit, Delete Categories</p>
+                </div>
+            </div>
+        </div>
 
-<h1>Index</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        Category Id
+                    </th>
+                    <th class="text-center">
+                        Category Name
+                    </th>
+                    <th class="text-center">Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@item.CategoryId</td>
+                        <td class="text-center"> @item.CategoryName</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a>
+                            <a class="btn btn-sm btn-warning" asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div  style=" margin-top:30px;">
+            <a asp-action="Create" asp-controller="Categories" class="cart-btn">Create Category</a>
+        </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    </div>
+</div>

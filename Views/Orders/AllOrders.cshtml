@@ -1,68 +1,89 @@
 ﻿@model IEnumerable<Fiore.Models.Order>
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<div class="hero-area hero-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 offset-lg-2 text-center">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
 
-<h1>Index</h1>
+                        <h1> All Orders</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-section mt-150 mb-150">
+    <div class="container" style="width:80%; margin-top:50px; margin-bottom:50px">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="orange-text">All</span> Orders</h3>
+@*                    <p>You can Create, Edit, Delete Categories</p>
+*@                </div>
+            </div>
+        </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                model.UserId
-            </th>
-            <th>
-                OrderDate
-            </th>
-            <th>
-                TotalPrice
-            </th>
-            <th>
-                HouseNumber
-            </th>
-            <th>
-                StreetName
-            </th>
-            <th>
-                CityName
-            </th>
-            <th>
-                CountryName
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    item.UserId
-                </td>
-                <td>
-                    @item.OrderDate
-                </td>
-                <td>
-                    @item.TotalPrice
-                </td>
-                <td>
-                    @item.HouseNumber
-                </td>
-                <td>
-                    @item.StreetName
-                </td>
-                <td>
-                    @item.CityName
-                </td>
-                <td>
-                    @item.CountryName
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.OrderId">Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        model.UserId
+                    </th>
+                    <th>
+                        OrderDate
+                    </th>
+                    <th>
+                        TotalPrice
+                    </th>
+                    <th>
+                        HouseNumber
+                    </th>
+                    <th>
+                        StreetName
+                    </th>
+                    <th>
+                        CityName
+                    </th>
+                    <th>
+                        CountryName
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.UserId
+                        </td>
+                        <td>
+                            @item.OrderDate
+                        </td>
+                        <td>
+                            @item.TotalPrice
+                        </td>
+                        <td>
+                            @item.HouseNumber
+                        </td>
+                        <td>
+                            @item.StreetName
+                        </td>
+                        <td>
+                            @item.CityName
+                        </td>
+                        <td>
+                            @item.CountryName
+                        </td>
+                        <td>
+                           <a class="cart-btn" asp-action="OrderProducts" asp-controller="ProductOrderDetails" asp-route-orderId="@item.OrderId">Order Products</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
