@@ -4,12 +4,13 @@
 @{
     decimal TotalPrice = 0;
 }
+
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
-                    <h1>Check Out Product</h1>
+                    <h1>Check Out </h1>
                 </div>
             </div>
         </div>
@@ -18,6 +19,7 @@
 <!-- end breadcrumb section -->
 <!-- check out section -->
 <!-- check out section -->
+@if(@Model!=null){
 <div class="checkout-section mt-150 mb-150">
     <div class="container">
         <div class="row">
@@ -27,9 +29,9 @@
                         <div class="card single-accordion">
                             @await Html.PartialAsync("~/Views/Orders/Create.cshtml", new AddressViewModel());
                         </div>
-                        
+
                         <div class="card single-accordion">
-                            
+
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="card-details">
@@ -79,63 +81,76 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-    @*   <div class=" text-center">
-        <a asp-action="Index" asp-controller="Home" class=" btn btn-default">Continue Shoping</a>
+}
+else{
+     <div style="margin-left:auto; margin-right:auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="cart-table-wrap">
+                        <h2>Empty shopping cart</h2>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+}
 
-        @if (Model != null && Model.Any())
-        {
-        decimal TotalPrice = 0;
-        <table class="table">
-        <tr>
-        <th>Product  </th>
-        <th>Quantity</th>
-        <th>Unit Price</th>
-        <th>Subtotal</th>
-        </tr>
-        @foreach (var cartItem in Model)
-        {
-        TotalPrice = TotalPrice + @cartItem.Subtotal;
-        <tr>
-        <td>
-        @cartItem.Product.ProductName
-        </td>
-        <td>
-        @cartItem.Quantity
-        </td>
-        <td>
-        @cartItem.Product.UnitPrice
-        </td>
 
-        <td>
-        @cartItem.Subtotal
-        </td>
-        </tr>
-        }
 
-        </table>
-        <p><b>Total Price: @TotalPrice</b></p>
 
-        <hr />
-        @*        <h3>Please click below link to get your address details</h3>
-        <a asp-action="Create" asp-controller="Orders" class=" btn btn-default"> Address</a>*@
-    @*
-        @await Html.PartialAsync("~/Views/Orders/Create.cshtml", new OrderViewModel());
-        }
-        else
-        {
-        <h2 class="text-center">Empty shopping cart</h2>
-        }*@
+
+
+
+
+
+
+@*   <div class=" text-center">
+    <a asp-action="Index" asp-controller="Home" class=" btn btn-default">Continue Shoping</a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+    decimal TotalPrice = 0;
+    <table class="table">
+    <tr>
+    <th>Product  </th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Subtotal</th>
+    </tr>
+    @foreach (var cartItem in Model)
+    {
+    TotalPrice = TotalPrice + @cartItem.Subtotal;
+    <tr>
+    <td>
+    @cartItem.Product.ProductName
+    </td>
+    <td>
+    @cartItem.Quantity
+    </td>
+    <td>
+    @cartItem.Product.UnitPrice
+    </td>
+
+    <td>
+    @cartItem.Subtotal
+    </td>
+    </tr>
+    }
+
+    </table>
+    <p><b>Total Price: @TotalPrice</b></p>
+
+    <hr />
+    @*        <h3>Please click below link to get your address details</h3>
+    <a asp-action="Create" asp-controller="Orders" class=" btn btn-default"> Address</a>*@
+@*
+    @await Html.PartialAsync("~/Views/Orders/Create.cshtml", new OrderViewModel());
+    }
+    else
+    {
+    <h2 class="text-center">Empty shopping cart</h2>
+    }*@
 
 

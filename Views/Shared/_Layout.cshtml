@@ -64,24 +64,28 @@
                         <!-- menu start -->
                         <nav class="main-menu">
                             <ul>
-                                
-
                                 <li>
-                                    <a href="contact.html">Contact</a>
-                                </li>
-                                <li>
-                                    <a href="#">Cart</a>
+                                    <a href="#">View Cart</a>
                                     <ul class="sub-menu">
                                         <li><a class="shopping-cart" asp-action="ViewCart" asp-controller="ShoppingCart">View Cart</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Checkout</a>
+                                    <ul class="sub-menu">
                                         <li><a asp-action="Checkout" asp-controller="ShoppingCart">Check Out</a></li>
                                     </ul>
                                 </li>
+
                                 <li>
                                     <a asp-action="UserOrders" asp-controller="Orders">My Orders</a>
                                     <ul class="sub-menu">
                                         <li><a asp-action="UserOrders" asp-controller="Orders">All Orders</a></li>
                                         <li><a asp-action="Details" asp-controller="Orders">Last Order</a></li>
                                     </ul>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact</a>
                                 </li>
 
                                 <li>

@@ -17,6 +17,11 @@ namespace Fiore.Controllers
 
         public IActionResult Index(string keyword)
         {
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddHours(1);
+            options.Secure = true;
+            Response.Cookies.Append("Search", keyword, options);
+
             ViewBag.Keyword = keyword;      
             var products = _context.Products.Include(i => i.Category)
                .Where(i => i.ProductName.Contains(keyword) || 

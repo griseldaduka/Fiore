@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Fiore.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("FioreDbContextConnection");;
+var connectionString = builder.Configuration.GetConnectionString("FioreDbContextConnection"); ;
 
 builder.Services.AddDbContext<FioreDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -49,6 +49,26 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.Use(async (context, next) =>
+    {
+        await next();
+        if (context.Response.StatusCode == 404)
+        {
+            context.Request.Path = "/Home/Error404";
+            await next();
+        }
+    });
+
+app.Use(async (context, next) =>
+{
+    await next();
+    if (context.Response.StatusCode == 400)
+    {
+        context.Request.Path = "/Home/NotFound?msg={0}";
+        await next();
+    }
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

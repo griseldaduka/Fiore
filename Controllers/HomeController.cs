@@ -20,7 +20,10 @@ namespace Fiore.Controllers
         [HttpGet]
         public IActionResult Index(string? order)
         {
-
+            if (!String.IsNullOrEmpty(Request.Cookies["Search"]))
+            {
+                ViewBag.Cookie= Request.Cookies["Search"];
+            }
             var response = new List<ProductViewModel>();
             var cartItems = HttpContext.Session.GetObjectFromJson<List<CartItem>>("cart");
 
@@ -94,5 +97,14 @@ namespace Fiore.Controllers
                 return View(response);
             }
         }
+        public IActionResult Error404()
+        {
+            return View();
+        }
+        public IActionResult NotFound( string msg)
+        {
+            return View(msg);
+        }
     }
+
 }

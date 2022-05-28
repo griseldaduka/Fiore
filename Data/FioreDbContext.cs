@@ -1,4 +1,5 @@
 ﻿using Fiore.Models;
+using Fiore.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -16,6 +17,7 @@ public class FioreDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Category> Categories { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<ProductOrderDetails> ProductOrderDetails { get; set; }
+    public DbSet<Complaint> Complaints { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -26,6 +28,12 @@ public class FioreDbContext : IdentityDbContext<ApplicationUser>
         builder.Entity<Order>()
             .HasOne(u => u.ApplicationUser)
             .WithMany(o => o.Orders)
+            .HasForeignKey(o => o.UserId)
+            .HasPrincipalKey(u => u.Id);
+
+        builder.Entity<Complaint>()
+            .HasOne(u => u.ApplicationUser)
+            .WithMany(o => o.Complaints)
             .HasForeignKey(o => o.UserId)
             .HasPrincipalKey(u => u.Id);
 
