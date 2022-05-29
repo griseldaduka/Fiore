@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Fiore.Models.Entities.Complaint>
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Get 24/7 Support</p>
+                    <h1>All your Complaints</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-section mt-150 mb-150">
+    <div class="container" style="width:80%; margin-top:50px; margin-bottom:50px">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3>Your  <span class="orange-text">Complaints</span></h3>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- end breadcrumb section -->
+            <!-- contact form -->
+            <div class="contact-from-section mt-150 mb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mb-5 mb-lg-0">
+                            <div id="form_status"></div>
+                            <div class="contact-form">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Subject
+                                            </th>
+                                            <th>
+                                                Description
+                                            </th>
+                                            <th>
+                                                PhoneNumber
+                                            </th>
+                                            <th>
+                                                CmpDate
+                                            </th>
+
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                                <tr>
+                                                    <td>
+                                                        @item.Subject
+                                                    </td>
+                                                    <td>
+                                                        @item.Description
+                                                    </td>
+                                                    <td>
+                                                        @item.PhoneNumber
+                                                    </td>
+                                                    <td>
+                                                        @item.CmpDate
+                                                    </td>
+                                                    if(@item.Checked==true)
+                                                    {
+                                                        <td>
+                                                            Checked
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>
+                                                            Not checked
+                                                        </td>
+                                                    }
+                                                </tr>
+                                            
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

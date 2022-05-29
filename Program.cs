@@ -60,15 +60,6 @@ app.Use(async (context, next) =>
         }
     });
 
-app.Use(async (context, next) =>
-{
-    await next();
-    if (context.Response.StatusCode == 400)
-    {
-        context.Request.Path = "/Home/NotFound?msg={0}";
-        await next();
-    }
-});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

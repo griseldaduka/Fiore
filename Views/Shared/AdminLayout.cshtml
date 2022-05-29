@@ -58,9 +58,7 @@
                         <div class="site-logo" style="margin-top:0px">
                             <a asp-action="Index" asp-controller="Home">
                                 <h3 style="color:#F28123">Admin Section</h3>
-                                @*                                <img src="/img/Fiore 4.png" />
-
-                                *@
+                             
                             </a>
                         </div>
                         <!-- logo -->
@@ -99,11 +97,9 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="contact.html">User Complaints</a>
+                                    <a asp-action="AllComplaints" asp-controller="Complaints">Clients Complaints</a>
                                 </li>
-                                <li>
-                                    <a class="mobile-hide search-bar-icon" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </li>
+                                
                                 <li>
                                     <a href="#" style="font-size:large; color:#F28123">Account</a>
                                     <ul class="sub-menu">

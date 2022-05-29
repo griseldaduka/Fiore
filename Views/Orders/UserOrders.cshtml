@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Fiore.Models.Order>
 @{
     var count = 1;
+    var anyOrder = 0;
 }
 <div class="hero-area hero-bg">
     <div class="container">
@@ -54,6 +55,7 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
+                                anyOrder = anyOrder + 1;
                                 <tr>
                                     <td>
                                         <b>@count</b>
@@ -83,8 +85,12 @@
                                 </tr>
                                 count = count + 1;
                             }
+                            
                         </tbody>
                     </table>
+                    @if(anyOrder==0){
+                                <h4><b>No orders done</b></h4>
+                            }
                 </div>
             </div>
         </div>

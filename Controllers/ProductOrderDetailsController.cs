@@ -41,17 +41,18 @@ namespace Fiore.Controllers
         [HttpGet]
         public async Task<IActionResult> OrderProducts(int orderId)
         {
-            List<OrderProductsViewModel> orderProductsList = new List<OrderProductsViewModel>();
+            var orderProductsList = new List<CartItem>();
             var orderProducts = await _context.ProductOrderDetails.Where(i => i.OrderId == orderId).ToListAsync();
             foreach(var oproduct in orderProducts)
             {
-                var products = _context.Products.First(i => i.ProductId == oproduct.ProductId);
-                orderProductsList.Add(new OrderProductsViewModel
+                var product = _context.Products.Include(i=>i.Category).First(i => i.ProductId == oproduct.ProductId);
+                orderProductsList.Add(new CartItem
                 {
-                    ImageName=products.ImageName,
-                    ProductName = products.ProductName,
+                    //ImageName=products.ImageName,
+                    //ProductName = products.ProductName,
+                    Product = product,
                     Quantity = oproduct.Quantity,
-                    UnitPrice=oproduct.UnitPrice,
+                    //UnitPrice=oproduct.UnitPrice,
                     Subtotal = (oproduct.Quantity) * (oproduct.UnitPrice)
                 }) ;
             }

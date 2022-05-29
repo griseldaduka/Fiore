@@ -128,7 +128,7 @@ namespace Fiore.Controllers
                 var category = _context.Categories.First(i => i.CategoryId == product.CategoryId);
                 var ctgName = category.CategoryName;
 
-                var directory = "wwwroot/Images/Products/" + ctgName;
+                var directory = "wwwroot/img/Products/" + ctgName;
                 string path = Path.Combine(Directory.GetCurrentDirectory(), directory);
 
                 if (!Directory.Exists(path))

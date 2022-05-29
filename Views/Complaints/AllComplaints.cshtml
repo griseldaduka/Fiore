@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Fiore.Models.Entities.Complaint>
+@{
+    var countfalse = 0;
+    var counttrue = 0;
+}
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Get 24/7 Support</p>
+                    <h1>All Complaints </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="width:70%; margin-top:50px; margin-bottom:50px">
+    <div style="margin-bottom:0px">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+                <h3>New  <span class="orange-text"></span></h3>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- end breadcrumb section -->
+        <!-- contact form -->
+        <div style="margin-top:20px">
+            <div class="container">
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        @if (@item.Checked == false)
+                        {
+                            countfalse = countfalse + 1;
+                            <div style="border: 2px groove orange; padding:20px; writing-mode: horizontal-tb; width:80%;margin-left:auto; margin-left:auto; ">
+
+                                <p>Subject: <b>@item.Subject</b></p>
+                                <p>Description: <b>@item.Description</b></p>
+                                <p>Phone Number: <b>@item.PhoneNumber</b></p>
+                                <p>Complaint Date: <b>@item.CmpDate</b></p>
+                                <p>Client Name: <b>@item.ApplicationUser.FirstName @item.ApplicationUser.LastName</b></p>
+                                <a class="btn btn-primary" asp-action="CheckComplaint" asp-controller="Complaints" asp-route-id="@item.Id">Check</a>
+                            </div>
+                        }
+
+                    }
+                    @if (countfalse == 0)
+                    {
+                        <div style="border: 2px groove orange; padding:20px; writing-mode: horizontal-tb; width:80%;margin-left:auto; margin-left:auto; ">
+                            <h4><b>No new complaints</b></h4>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="width:70%;  margin-bottom:50px">
+    <div style="margin-bottom:0px">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+                <h3>Checked  <span class="orange-text"></span></h3>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- end breadcrumb section -->
+        <!-- contact form -->
+        <div style="margin-top:20px">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        @if (@item.Checked == true)
+                        {
+                            countfalse = countfalse + 1;
+                            <div style="border: 2px groove orange; padding:20px;margin-bottom:10px; writing-mode: horizontal-tb; width:80%;margin-left:auto; margin-left:auto; ">
+                                <p>Subject: <b>@item.Subject</b></p>
+                                <p>Description: <b>@item.Description</b></p>
+                                <p>Phone Number: <b>@item.PhoneNumber</b></p>
+                                <p>Cmplaint Date: <b>@item.CmpDate</b></p>
+                                <p>Client Name: <b>@item.ApplicationUser.FirstName @item.ApplicationUser.LastName</b></p>
+                            </div>
+                        }
+                    }
+                    @if (counttrue == 0)
+                    {
+                        <div style="border: 2px groove orange; padding:20px; writing-mode: horizontal-tb; width:80%;margin-left:auto; margin-left:auto; ">
+                            <h4><b>No checked complaints</b></h4>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

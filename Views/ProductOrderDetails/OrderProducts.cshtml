@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Fiore.Models.ViewModels.OrderProductsViewModel>
+﻿@model IEnumerable<Fiore.Models.CartItem>
 
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
@@ -26,6 +26,7 @@
             </thead>
             <tbody>
                 <tr>
+                   <td class="text-center">Image</td>
                     <td>Product Name </td>
                     <td>Unit Price</td>
                     <td>Quantity</td>
@@ -34,10 +35,11 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.ProductName</td>
-                        <td>$@item.UnitPrice</td>
+                        <td class="product-image text-center"><img src="~/img/Products/@item.Product.Category.CategoryName/@item.Product.ImageName"></td>
+                        <td>@item.Product.ProductName</td>
+                        <td>$@item.Product.UnitPrice</td>
                         <td>@item.Quantity</td>
-                        <td>@item.Subtotal $</td>
+                        <td>$@item.Subtotal </td>
                     </tr>
                 }
             </tbody>
@@ -47,42 +49,3 @@
 
 
 
-@*<h3 class="text-center">Your order products</h3>
-    <table class="table">
-    <thead>
-    <tr>
-    <th>
-    ProductName
-    </th>
-
-    <th>
-    UnitPrice
-    </th>
-    <th>
-    Quantity
-    </th>
-    <th>
-    Subtotal
-    </th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
-    {
-    <tr>
-    <td>
-    @item.ProductName
-    </td>
-    <td>
-    @item.UnitPrice
-    </td>
-    <td>
-    @item.Quantity
-    </td>
-    <td>
-    @item.SubtotalPrice
-    </td>
-    </tr>
-    }
-    </tbody>
-    </table>*@

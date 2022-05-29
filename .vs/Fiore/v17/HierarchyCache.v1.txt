@@ -3,9 +3,9 @@ i:{00000000-0000-0000-0000-000000000000}:Fiore.sln
 ++Fiore
 i:{00000000-0000-0000-0000-000000000000}:Fiore
 ++Connected Services 
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2383
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3418
 ++Dependencies
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2382
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3417
 ++Properties
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\properties\
 ++wwwroot
@@ -17,6 +17,8 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\boots
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\bootstrap\css\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\bootstrap\css\
+++Images
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\images\
 ++img
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\
 ++avaters
@@ -28,29 +30,46 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\lates
 ++Products
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\images\products\
+++Cactus
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\
+++Candle cactus.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\candle cactus.jpg
+++Prickly pear cactus.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\prickly pear cactus.jpg
+++Green
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\images\products\green\
+++Fern on Stand.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\fern on stand.jpg
+++Ficus.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\ficus.jpg
+++Foxglove.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\foxglove.jpg
+++philodendron.png
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\philodendron.png
+++Rock soapwort.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\rock soapwort.jpg
+++Scarlet sage.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\scarlet sage.jpg
+++Tulip
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\
+++Winter
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\images\products\winter\
+++Anthurium Rainbow Champion.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\anthurium rainbow champion.jpg
+++Green Palm.png
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\green palm.png
+++Snowdrops.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\snowdrops.jpg
+++Winter Flower.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\winter flower.jpg
 ++team
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\team\
 ++templateproducts
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\
-++product-img-1.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-1.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-1.jpg
-++product-img-2.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-2.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-2.jpg
-++product-img-3.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-3.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-3.jpg
-++product-img-4.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-4.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-4.jpg
-++product-img-5.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-5.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-5.jpg
-++product-img-6.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-6.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-6.jpg
 ++1.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\1.jpg
 ++a.jpg
@@ -63,8 +82,10 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\bread
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\favicon.png
 ++feature-bg.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\feature-bg.jpg
+++Fiore 4.png
 ++Fiore logo.PNG
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\fiore logo.png
+++Fiore logo2.PNG
+++Fiore logo3.PNG
 ++hero-bg.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\hero-bg.jpg
 ++hero-bg-2.jpg
@@ -79,26 +100,6 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\logo.
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\bootstrap\js\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\bootstrap\js\
-++form-validate.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\form-validate.js
-++jquery.countdown.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.countdown.js
-++jquery.isotope-3.0.6.min.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.isotope-3.0.6.min.js
-++jquery.magnific-popup.min.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.magnific-popup.min.js
-++jquery.meanmenu.min.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.meanmenu.min.js
-++jquery-1.11.3.min.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery-1.11.3.min.js
-++main.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\main.js
-++owl.carousel.min.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\owl.carousel.min.js
-++sticker.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\sticker.js
-++waypoints.js
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\waypoints.js
 ++favicon.ico
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\favicon.ico
 ++Areas
@@ -109,6 +110,8 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\controllers\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\controllers\admincontroller.cs
 ++CategoriesController.cs
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\controllers\categoriescontroller.cs
+++ComplaintsController.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\controllers\complaintscontroller.cs
 ++DashboardController.cs
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\controllers\dashboardcontroller.cs
 ++HomeController.cs
@@ -135,16 +138,59 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\data\fioredbconte
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\helpers\
 ++Migrations
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\
+++20220504221733_FirstMigration.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220504221733_firstmigration.cs
+++20220508103611_AddColourEntity.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508103611_addcolourentity.cs
+++20220508130642_AnotherColour.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508130642_anothercolour.cs
+++20220508131127_AddImageName.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508131127_addimagename.cs
+++20220508193815_deleteColourId.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508193815_deletecolourid.cs
+++20220508194013_deleteColourEntity.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508194013_deletecolourentity.cs
+++20220511174411_OrderUserIdFk.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511174411_orderuseridfk.cs
+++20220511205824_kot2.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511205824_kot2.cs
+++20220518174252_OrderEntityFk.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518174252_orderentityfk.cs
+++20220518213607_FinalOrderFk.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518213607_finalorderfk.cs
+++20220528000727_Complaint.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220528000727_complaint.cs
+++20220528001835_CmpValidators.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220528001835_cmpvalidators.cs
+++20220528004427_Checked.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220528004427_checked.cs
+++FioreDbContextModelSnapshot.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\fioredbcontextmodelsnapshot.cs
 ++Models
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\
 ++Entities
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\
+++CartItem.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\cartitem.cs
+++Category.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\category.cs
+++Complaint.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\complaint.cs
+++ErrorViewModel.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\errorviewmodel.cs
+++Order.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\order.cs
+++Product.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\product.cs
+++ProductOrderDetails.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\productorderdetails.cs
 ++ViewModels
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\
+++AddressViewModel.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\addressviewmodel.cs
+++ComplaintViewModel.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\complaintviewmodel.cs
 ++OrderProductsViewModel.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\orderproductsviewmodel.cs
-++OrderViewModel.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\orderviewmodel.cs
 ++ProductPostViewModel.cs
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels\productpostviewmodel.cs
 ++ProductViewModel.cs
@@ -159,42 +205,50 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\viewmodels
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\
 ++Admin
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\
-++Create.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\create.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\create.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\create.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\create.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\create.cshtml
-++Graph.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\graph.cshtml
-++Index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\home\index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\productorderdetails\index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\search\index.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\index.cshtml
-++ShowEdit.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\showedit.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\showedit.cshtml
 ++Categories
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\
+++Complaints
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\complaints\
+++AllComplaints.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\complaints\allcomplaints.cshtml
+++Create.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\complaints\create.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\create.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\create.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\create.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\create.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\create.cshtml
+++Index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\complaints\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\home\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\productorderdetails\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\index.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\search\index.cshtml
 ++Dashboard
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\dashboard\
 ++Home
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\home\
+++Error404.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\home\error404.cshtml
 ++Orders
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\
+++AllOrders.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\allorders.cshtml
+++Details.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\details.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\details.cshtml
+++UserOrders.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\userorders.cshtml
 ++ProductOrderDetails
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\productorderdetails\
+++OrderProducts.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\productorderdetails\orderproducts.cshtml
 ++Delete.cshtml
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\delete.cshtml
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\delete.cshtml
-++Details.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\details.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\details.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\details.cshtml
 ++Edit.cshtml
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\products\edit.cshtml
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\categories\edit.cshtml
@@ -239,9 +293,9 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\program.cs
 ++README.md
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\readme.md
 ++SQL Server Express LocalDB (Local) (ConnectionStrings:DefaultConnection)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2413
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3448
 ++SQL Server Express LocalDB (Local) (ConnectionStrings:FioreDbContextConnection)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2412
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3447
 ++Analyzers
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:analyzers
 ++Frameworks
@@ -258,6 +312,8 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\all.min.css
 ++animate.css
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\animate.css
+++custom.css
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\custom.css
 ++magnific-popup.css
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\magnific-popup.css
 ++main.css
@@ -296,64 +352,87 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\lates
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\latest-news\news-bg-5.jpg
 ++news-bg-6.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\latest-news\news-bg-6.jpg
-++Cactus
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\
-++Green
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\
-++Tulip
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\
-++Winter
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\
 ++team-1.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\team\team-1.jpg
 ++team-2.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\team\team-2.jpg
 ++team-3.jpg
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\team\team-3.jpg
+++product-img-1.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-1.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-1.jpg
+++product-img-2.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-2.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-2.jpg
+++product-img-3.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-3.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-3.jpg
+++product-img-4.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-4.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-4.jpg
+++product-img-5.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-5.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-5.jpg
+++product-img-6.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\templateproducts\product-img-6.jpg
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\templateproducts\product-img-6.jpg
+++form-validate.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\form-validate.js
+++jquery.countdown.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.countdown.js
+++jquery.isotope-3.0.6.min.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.isotope-3.0.6.min.js
+++jquery.magnific-popup.min.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.magnific-popup.min.js
+++jquery.meanmenu.min.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery.meanmenu.min.js
+++jquery-1.11.3.min.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\jquery-1.11.3.min.js
+++main.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\main.js
+++owl.carousel.min.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\owl.carousel.min.js
+++sticker.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\sticker.js
+++waypoints.js
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\js\waypoints.js
 ++Identity
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\areas\identity\
 ++SessionHelper.cs
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\helpers\sessionhelper.cs
-++20220504221733_FirstMigration.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220504221733_firstmigration.cs
-++20220508103611_AddColourEntity.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508103611_addcolourentity.cs
-++20220508130642_AnotherColour.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508130642_anothercolour.cs
-++20220508131127_AddImageName.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508131127_addimagename.cs
-++20220508193815_deleteColourId.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508193815_deletecolourid.cs
-++20220508194013_deleteColourEntity.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508194013_deletecolourentity.cs
-++20220511174411_OrderUserIdFk.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511174411_orderuseridfk.cs
-++20220511205824_kot2.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511205824_kot2.cs
-++20220518174252_OrderEntityFk.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518174252_orderentityfk.cs
-++20220518213607_FinalOrderFk.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518213607_finalorderfk.cs
-++FioreDbContextModelSnapshot.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\fioredbcontextmodelsnapshot.cs
-++CartItem.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\cartitem.cs
-++Category.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\category.cs
-++ErrorViewModel.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\errorviewmodel.cs
-++Order.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\order.cs
-++Product.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\product.cs
-++ProductOrderDetails.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\models\entities\productorderdetails.cs
-++AllOrders.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\allorders.cshtml
-++UserOrders.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\orders\userorders.cshtml
-++OrderProducts.cshtml
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\productorderdetails\orderproducts.cshtml
+++20220504221733_FirstMigration.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220504221733_firstmigration.designer.cs
+++20220508103611_AddColourEntity.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508103611_addcolourentity.designer.cs
+++20220508130642_AnotherColour.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508130642_anothercolour.designer.cs
+++20220508131127_AddImageName.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508131127_addimagename.designer.cs
+++20220508193815_deleteColourId.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508193815_deletecolourid.designer.cs
+++20220508194013_deleteColourEntity.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508194013_deletecolourentity.designer.cs
+++20220511174411_OrderUserIdFk.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511174411_orderuseridfk.designer.cs
+++20220511205824_kot2.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511205824_kot2.designer.cs
+++20220518174252_OrderEntityFk.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518174252_orderentityfk.designer.cs
+++20220518213607_FinalOrderFk.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518213607_finalorderfk.designer.cs
+++20220528000727_Complaint.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220528000727_complaint.designer.cs
+++20220528001835_CmpValidators.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220528001835_cmpvalidators.designer.cs
+++20220528004427_Checked.Designer.cs
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220528004427_checked.designer.cs
+++DeleteUserRole.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\deleteuserrole.cshtml
+++Graph.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\graph.cshtml
+++ShowEdit.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\admin\showedit.cshtml
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\showedit.cshtml
 ++DeleteRole.cshtml
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\views\role\deleterole.cshtml
 ++_Layout.cshtml.css
@@ -395,19 +474,19 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\microsoft.aspnetc
 ++Microsoft.NETCore.App
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\microsoft.netcore.app
 ++Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore (6.0.5)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2407
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3442
 ++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.5)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2408
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3443
 ++Microsoft.AspNetCore.Identity.UI (6.0.5)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2411
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3446
 ++Microsoft.EntityFrameworkCore.SqlServer (6.0.5)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2405
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3440
 ++Microsoft.EntityFrameworkCore.Tools (6.0.5)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2409
-++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.4)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2410
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3444
+++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.5)
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3445
 ++Swashbuckle.AspNetCore (6.3.0)
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>2406
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:>3441
 ++serviceDependencies.local.json
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\properties\servicedependencies.local.json
 ++bootstrap.css
@@ -434,74 +513,8 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\main.scss
 ++prepros-6.config
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\prepros-6.config
-++African ocotillo cactus.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\african ocotillo cactus.jpg
-++Barrel cactus.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\barrel cactus.jpg
-++Candle cactus.png
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\candle cactus.png
-++Prickly pear cactus.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\prickly pear cactus.jpg
-++Silver torch cactus.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\cactus\silver torch cactus.jpg
-++Foxglove.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\foxglove.jpg
-++Majesty palm.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\majesty palm.jpg
-++Rock soapwort.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\rock soapwort.jpg
-++Scarlet sage.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\scarlet sage.jpg
-++Spring snowflake.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\spring snowflake.jpg
-++Sweet alyssum.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\green\sweet alyssum.jpg
-++Black Tulip.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\black tulip.jpg
-++Double tulips.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\double tulips.jpg
-++Fringed red tulips.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\fringed red tulips.jpg
-++Parrot tulips.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\parrot tulips.jpg
-++Triumph tulips.jfif
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\triumph tulips.jfif
-++USA Lottery.PNG
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\tulip\usa lottery.png
-++Camellia.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\camellia.jpg
-++Cyclamen.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\cyclamen.jpg
-++Glory of the snow.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\glory of the snow.jpg
-++Pansies and Volas.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\pansies and volas.jpg
-++Snowdrops.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\snowdrops.jpg
-++Winter Jasmine.jpg
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\winter\winter jasmine.jpg
 ++Pages
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\areas\identity\pages\
-++20220504221733_FirstMigration.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220504221733_firstmigration.designer.cs
-++20220508103611_AddColourEntity.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508103611_addcolourentity.designer.cs
-++20220508130642_AnotherColour.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508130642_anothercolour.designer.cs
-++20220508131127_AddImageName.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508131127_addimagename.designer.cs
-++20220508193815_deleteColourId.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508193815_deletecolourid.designer.cs
-++20220508194013_deleteColourEntity.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220508194013_deletecolourentity.designer.cs
-++20220511174411_OrderUserIdFk.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511174411_orderuseridfk.designer.cs
-++20220511205824_kot2.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220511205824_kot2.designer.cs
-++20220518174252_OrderEntityFk.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518174252_orderentityfk.designer.cs
-++20220518213607_FinalOrderFk.Designer.cs
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\migrations\20220518213607_finalorderfk.designer.cs
 ++bootstrap.css.map
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\bootstrap\css\bootstrap.css.map
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\bootstrap\css\bootstrap.css.map
@@ -564,6 +577,8 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\sections\_shop-banner.scss
 ++_testimonials.scss
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\css\scss\sections\_testimonials.scss
+++2.PNG
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\images\products\green\2.png
 ++Account
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\areas\identity\pages\account\
 ++bootstrap.min.css.map
@@ -601,7 +616,8 @@ i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\areas\identity\pa
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\areas\identity\pages\account\logout.cshtml.cs
 ++Register.cshtml.cs
 i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\areas\identity\pages\account\register.cshtml.cs
-++Fiore logo2.PNG
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\fiore logo2.png
-++Fiore logo3.PNG
-i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\fiore logo3.png
+++Capture.PNG
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\images\products\winter\capture.png
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\capture test\capture.png
+++Capture Test
+i:{5e837d44-af09-473c-bac6-80721fdd0a6f}:c:\repositories\fiore\wwwroot\img\products\capture test\

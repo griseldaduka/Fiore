@@ -48,6 +48,8 @@
                         <p><b>Units in Stock:</b> @Model.UnitsInStock</p>
                         <p><b>Created Date:</b> @Model.CreatedDate</p>
                         <p><b>Updated Date:</b> @Model.UpdatedDate</p>
+                         <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@Model.ProductId">Update</a>
+                            <a class=" btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@Model.ProductId">Delete </a>
                     </div>
                 </div>
             }
@@ -57,7 +59,8 @@
                     <div class="single-product-content">
                         <h3>@Model.ProductName<span>(@available)</span></h3>
                         <p class="single-product-pricing">$@Model.UnitPrice</p>
-                        <p>@Model.Description</p>
+                        <p><strong>Description: @Model.Description</p>
+                        <p><strong>Categorie: </strong>@Model.Category.CategoryName</p>
                         <div class="single-product-form">
                             <input type="hidden" value="@Model.ProductId" class="productid" />
                             @if (@Model.IsInCart)
@@ -76,7 +79,6 @@
                                 <a asp-action="ViewCart" class="cart-btn view-cart hide" asp-controller="ShoppingCart">View Cart</a>
                             }
                         </div>
-                        <p><strong>Categorie: </strong>@Model.Category.CategoryName</p>
 
                     </div>
                 </div>

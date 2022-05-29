@@ -1,4 +1,19 @@
-﻿<div class="col-lg-6 grid-margin stretch-card">
+﻿<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Get 24/7 Support</p>
+                    <h1>Your Complaints</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Line chart</h4>
@@ -6,115 +21,121 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="~/js/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script>
 
-                 //$(document).ready(function(){
-                 //   const labels = ["Janar","Shkurt","Mars","Prill","Maj","Qershor"];
-                 //   const data = {
-                 //       labels: labels,
-                 //       datasets: [{
-                 //       label: 'Sales',
-                 //       data: [65, 59, 80, 81, 56, 55, 40],
-                 //       borderWidth: 1
-                 //       }]
-                 //   };
 
-                 //   var barChartCanvas = canvas.getContext("2d");
+            //$(document).ready(function(){
+            //   const labels = ["Janar","Shkurt","Mars","Prill","Maj","Qershor"];
+            //   const data = {
+            //       labels: labels,
+            //       datasets: [{
+            //       label: 'Sales',
+            //       data: [65, 59, 80, 81, 56, 55, 40],
+            //       borderWidth: 1
+            //       }]
+            //   };
 
-                 //   // This will get the first returned node in the jQuery collection.
-                 //   var barChart = new Chart(barChartCanvas, {
-                 //       type: 'bar',
-                 //       data: data,
-                 //               options: {
-                 //               scales: {
-                 //                   y: {
-                 //                   beginAtZero: true
-                 //                   }
-                 //               }
-                 //               },
-                 //           });
-                 //   });
+            //   var barChartCanvas = canvas.getContext("2d");
 
-                $(document).ready(function(){
-                    var uri='https://localhost:7258/api/dashboard';
-                     $.getJSON(uri).done(function(result){
-                          var setlabels = result.map(function(e) {
-                            console.log(e.Name);
-                            return e.Name;
-                        });
-                           var sales = result.map(function(e) {
-                            console.log(e.Sales);
-                            return e.Sales;
-                           });
-                       
-                        graph(setlabels, sales);
-                     });
+            //   // This will get the first returned node in the jQuery collection.
+            //   var barChart = new Chart(barChartCanvas, {
+            //       type: 'bar',
+            //       data: data,
+            //               options: {
+            //               scales: {
+            //                   y: {
+            //                   beginAtZero: true
+            //                   }
+            //               }
+            //               },
+            //           });
+            //   });
+
+           $(document).ready(function(){
+               var uri='https://localhost:7258/api/dashboard';
+                $.getJSON(uri).done(function(result){
+                    console.log(result);
+                   graph(result);
                 });
+           });
 
-                function graph(setlabels, sales){
-                    const data = {
-                        labels: setlabels,
-                        datasets: [{
-                        label: 'Sales',
-                        data: sales,
-                        borderWidth: 1
-                        }]
-                    };
+           function graph(json){
+             var lbl = json.map(function(item) {
+                return item.Name;
+            });      
+            console.log(lbl);
+            var sal = json.map(function(item) {
+                return item.Sales;
+            });   
+             console.log(sal);
 
-                    var barChartCanvas = canvas.getContext("2d");
+               const data = {
+                   labels: lbl,
+                   datasets: [{
+                   label: 'Sales',
+                   data: sal,
+                   borderWidth: 1
+                   }]
+               };
 
-                    var barChart = new Chart(barChartCanvas, {
-                        type: 'bar',
-                        data: data,
-                                options: {
-                                scales: {
-                                    y: {
-                                    beginAtZero: true
-                                    }
-                                }
-                                },
-                            });
-                            
-                }
+               var barChartCanvas = canvas.getContext("2d");
 
+               var barChart = new Chart(barChartCanvas, {
+                   type: 'bar',
+                   data: data,
+                           options: {
+                           scales: {
+                               y: {
+                               beginAtZero: true
+                               }
+                           }
+                           },
+                       });
 
-           //Ok Example
-                //const labels =["Janar","Shkurt","Mars","Prill","Maj","Qershor"];
-                //    const data = {
-                //      labels: labels,
-                //      datasets: [{
-                //        label: 'My First Dataset',
-                //        data:[65, 59, 80, 81, 56, 55, 40],
-                //        fill: false,
-                //        borderColor: 'rgb(75, 192, 192)',
-                //        tension: 0.1
-                //      }]
-                //    };
-
-
-
-                //    var barChartCanvas = canvas.getContext("2d");
-
-                //    var barChart = new Chart(barChartCanvas, {
-                //        type: 'line',
-                //        data: data,
-                //                options: {
-                //                scales: {
-                //                    y: {
-                //                    beginAtZero: true
-                //                    }
-                //                }
-                //                },
-                //            });
-
-                //    const config = {
-                //    type: 'line',
-                //    data: data,
-                //};
-
+           }
 
 </script>
+    //Ok Example
+         //const labels =["Janar","Shkurt","Mars","Prill","Maj","Qershor"];
+         //    const data = {
+         //      labels: labels,
+         //      datasets: [{
+         //        label: 'My First Dataset',
+         //        data:[65, 59, 80, 81, 56, 55, 40],
+         //        fill: false,
+         //        borderColor: 'rgb(75, 192, 192)',
+         //        tension: 0.1
+         //      }]
+         //    };
+
+
+
+         //    var barChartCanvas = canvas.getContext("2d");
+
+         //    var barChart = new Chart(barChartCanvas, {
+         //        type: 'line',
+         //        data: data,
+         //                options: {
+         //                scales: {
+         //                    y: {
+         //                    beginAtZero: true
+         //                    }
+         //                }
+         //                },
+         //            });
+
+         //    const config = {
+         //    type: 'line',
+         //    data: data,
+         //};
+
+
+
 
 

@@ -101,10 +101,7 @@ namespace Fiore.Controllers
         {
             return View();
         }
-        public IActionResult NotFound( string msg)
-        {
-            return View(msg);
-        }
+      
     }
 
 }
