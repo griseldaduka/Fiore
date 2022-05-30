@@ -1,9 +1,11 @@
 ﻿using Fiore.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fiore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/Dashboard")]
     public class DashboardController : ControllerBase

@@ -27,14 +27,14 @@ namespace Fiore.Controllers
             return View(await _context.Orders.ToListAsync());
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> UserOrders()
         {
             var userId = _userManager.GetUserId(User);
             return View(await _context.Orders.Where(i => i.UserId == userId).ToListAsync());
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Details(int? id)
         {
             var userId = _userManager.GetUserId(User);
@@ -57,14 +57,14 @@ namespace Fiore.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [HttpPost]
         public async Task<IActionResult> Create(AddressViewModel order)
         {

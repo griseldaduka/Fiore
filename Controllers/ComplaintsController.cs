@@ -9,6 +9,7 @@ using Fiore.Data;
 using Fiore.Models.Entities;
 using Fiore.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiore.Controllers
 {
@@ -25,6 +26,7 @@ namespace Fiore.Controllers
         }
 
         // GET: Complaints
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AllComplaints()
         {
             var fioreDbContext = _context.Complaints.Include(c => c.ApplicationUser);
@@ -44,6 +46,7 @@ namespace Fiore.Controllers
             return View(cmpList);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult CheckComplaint(int id)
         {
             if (id == 0)
@@ -68,16 +71,15 @@ namespace Fiore.Controllers
         }
 
         // GET: Complaints/Create
+        [Authorize(Roles = "User")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Complaints/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Create([Bind("Id,Subject,Description,PhoneNumber,")] ComplaintViewModel complaint)
         {
             if (ModelState.IsValid)
@@ -99,52 +101,6 @@ namespace Fiore.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(complaint);
-        }
-
-
-
-
-        // GET: Complaints/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Complaints == null)
-            {
-                return NotFound();
-            }
-
-            var complaint = await _context.Complaints
-                .Include(c => c.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (complaint == null)
-            {
-                return NotFound();
-            }
-
-            return View(complaint);
-        }
-
-        // POST: Complaints/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Complaints == null)
-            {
-                return Problem("Entity set 'FioreDbContext.Complaints'  is null.");
-            }
-            var complaint = await _context.Complaints.FindAsync(id);
-            if (complaint != null)
-            {
-                _context.Complaints.Remove(complaint);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ComplaintExists(int id)
-        {
-            return (_context.Complaints?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

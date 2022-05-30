@@ -1,10 +1,12 @@
 ﻿using Fiore.Data;
 using Fiore.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fiore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         public UserManager<ApplicationUser> UserManager;

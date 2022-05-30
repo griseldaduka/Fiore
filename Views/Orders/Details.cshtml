@@ -40,11 +40,10 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-                        <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View order products</a>
-                    </div>
                 </div>
-
+                <div style="margin-left:300px; margin-right:50px; margin-top:30px">
+                    <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View order products</a>
+                </div>
             </div>
         </div>
 

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Fiore.Models;
 using Fiore.Data;
 using Fiore.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiore.Controllers
 {
@@ -20,6 +21,7 @@ namespace Fiore.Controllers
             _context = context;
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.ProductOrderDetails == null)
@@ -37,7 +39,7 @@ namespace Fiore.Controllers
             return View(productOrderDetails);
         }
 
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> OrderProducts(int orderId)
         {

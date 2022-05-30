@@ -21,6 +21,7 @@ namespace Fiore.Controllers
             _context = context;
         }
         // GET: Products
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var products = await _context.Products.ToListAsync();
@@ -108,7 +109,7 @@ namespace Fiore.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
@@ -116,7 +117,7 @@ namespace Fiore.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         //[Authorize(Roles = "Admin")]
@@ -162,7 +163,9 @@ namespace Fiore.Controllers
 
             return View(product);
         }
-        //[Authorize(Roles = "Admin")]
+
+
+        [Authorize(Roles = "Admin")]
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -183,7 +186,7 @@ namespace Fiore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, ProductViewModel product)
         {
             var existingProduct = await _context.Products.FindAsync(id);
@@ -226,7 +229,7 @@ namespace Fiore.Controllers
             return View(product);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)
@@ -247,7 +250,7 @@ namespace Fiore.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Products == null)
