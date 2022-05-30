@@ -28,7 +28,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
                     <h3><span class="orange-text">Our</span> Products</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+                    <p>Flowers are the best gift to give anyone because flowers come in various shapes, colours, and fragrances</p>
                 </div>
             </div>
         </div>
@@ -52,7 +52,9 @@
                     <div class="single-product-item">
                         @if (@cartItem.UnitsInStock == 0)
                         {
-                            <h5 class="out-of-stock"><b>Out of stock</b></h5>
+                            <h5 style="border: 1px solid; color: #F28123;background-color: black; float: right;width: 100%;">
+                                <b>Out of stock</b>
+                            </h5>
                         }
                         <div class="product-image">
                             <img src="~/img/Products/@cartItem.Category.CategoryName/@cartItem.ImageName" alt="">

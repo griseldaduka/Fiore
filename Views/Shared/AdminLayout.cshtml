@@ -58,7 +58,7 @@
                         <div class="site-logo" style="margin-top:0px">
                             <a asp-action="Index" asp-controller="Home">
                                 <h3 style="color:#F28123">Admin Section</h3>
-                             
+
                             </a>
                         </div>
                         <!-- logo -->
@@ -66,40 +66,23 @@
                         <nav class="main-menu">
                             <ul>
                                 <li>
-                                    <a href="#">Products</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-action="Index" asp-controller="Products">Manage Products</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="#">Categories</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-action="Index" asp-controller="Categories">Manage Categories</a></li>
-                                    </ul>
+                                    <a asp-action="Index" asp-controller="Categories"> Categories</a>
                                 </li>
                                 <li>
-                                    <a href="#">Users</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-action="Index" asp-controller="Admin">Manage Users</a></li>
-                                    </ul>
+                                    <a asp-action="Index" asp-controller="Admin"> Users</a>
                                 </li>
                                 <li>
-                                    <a href="#">Roles</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-action="Index" asp-controller="Role">Manage Roles</a></li>
-                                    </ul>
+                                    <a asp-action="Index" asp-controller="Role"> Roles</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Orders</a>
-                                    <ul class="sub-menu">
-                                        <li><a asp-action="AllOrders" asp-controller="Orders"> All Orders</a></li>
-                                    </ul>
+                                    <a asp-action="AllOrders" asp-controller="Orders"> All Orders</a>
                                 </li>
                                 <li>
-                                    <a asp-action="AllComplaints" asp-controller="Complaints">Clients Complaints</a>
+                                    <a asp-action="AllComplaints" asp-controller="Complaints"> Complaints</a>
                                 </li>
-                                
+                                <li>
+                                    <a asp-action="Graph" asp-controller="Admin"> Dashboard</a>
+                                </li>
                                 <li>
                                     <a href="#" style="font-size:large; color:#F28123">Account</a>
                                     <ul class="sub-menu">
@@ -134,28 +117,8 @@
             </div>
         </div>
     </div>
-    <!-- end search area -->
-    <!-- hero area -->
-    @*   <div class="hero-area hero-bg">
-        <div class="container">
-        <div class="row">
-        <div class="col-lg-9 offset-lg-2 text-center">
-        <div class="hero-text">
-        <div class="hero-text-tablecell">
-        <p class="subtitle">Earth laughs in flowers</p>
-        <h1> Stop and smell the roses</h1>
-        <div class="hero-btns">
-        <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-        <a href="contact.html" class="bordered-btn">Contact Us</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>*@
-    @RenderBody()
 
+    @RenderBody()
 
     <div class="footer-area">
         <div class="container">
@@ -176,15 +139,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-6">
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Shop</a></li>
-                            <li><a href="news.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <a asp-action="Index" asp-controller="Products">Manage Products</a>
+                            <a asp-action="Index" asp-controller="Categories">Manage Categories</a>
+                            <a asp-action="Index" asp-controller="Admin">Manage Users</a>
+                            <a asp-action="Index" asp-controller="Role">Manage Roles</a>
+                            <a asp-action="AllOrders" asp-controller="Orders"> All Orders</a>
+                            <a asp-action="AllComplaints" asp-controller="Complaints">Clients Complaints</a>
+
                         </ul>
                     </div>
                 </div>

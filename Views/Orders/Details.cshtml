@@ -2,20 +2,17 @@
 @using Fiore.Models.ViewModels
 @model Fiore.Models.Order
 
-<div class="hero-area hero-bg">
+<div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 offset-lg-2 text-center">
-                <div class="hero-text">
-                    <div class="hero-text-tablecell">
-                        <h1>Order Details</h1>
-                    </div>
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Order Details</h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="cart-section mt-150 mb-150">
     <div class="container">
         <div class="row">
@@ -43,7 +40,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div >
+                    <div>
                         <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View order products</a>
                     </div>
                 </div>

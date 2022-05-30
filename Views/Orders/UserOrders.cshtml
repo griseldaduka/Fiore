@@ -3,18 +3,16 @@
     var count = 1;
     var anyOrder = 0;
 }
-<div class="hero-area hero-bg">
+<div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 offset-lg-2 text-center">
-                <div class="hero-text">
-                    <div class="hero-text-tablecell">
-                        <p class="subtitle">Earth laughs in flowers</p>
-                        <h1> All Order Details</h1>
-                        <div class="hero-btns">
-                            <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                            <a href="contact.html" class="bordered-btn">Contact Us</a>
-                        </div>
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p class="subtitle">Earth laughs in flowers</p>
+                    <h1> All Order Details</h1>
+                    <div class="hero-btns">
+                        <a href="shop.html" class="boxed-btn">Fruit Collection</a>
+                        <a href="contact.html" class="bordered-btn">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -78,17 +76,17 @@
                                     <td>
                                         @item.TotalPrice
                                     </td>
-                                    <td >
+                                    <td>
                                         <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@item.OrderId">View order products</a>
                                     </td>
 
                                 </tr>
                                 count = count + 1;
                             }
-                            
+
                         </tbody>
                     </table>
-                    @if(anyOrder==0)
+                    @if (anyOrder == 0)
                     {
                         <h4><b>No orders submitted</b></h4>
                     }

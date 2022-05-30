@@ -1,16 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @model IEnumerable<IdentityRole>
-
-
-<div class="hero-area hero-bg">
+<div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 offset-lg-2 text-center">
-                <div class="hero-text">
-                    <div class="hero-text-tablecell">
-                        <p class="subtitle">Add roles</p>
-                        <h1> Role Management</h1>
-                    </div>
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p class="subtitle">Add roles</p>
+                    <h1> Role Management</h1>
                 </div>
             </div>
         </div>
@@ -47,11 +43,11 @@
                         <td class="text-center">
                             @*<form method="post" asp-controller="Role" asp-action="Delete">
                                 <input type="hidden" name="Id" value="@role.Id" />*@
-                                <a class="btn btn-sm btn-warning" asp-controller="Role" asp-route-id="@role.Id" asp-action="ShowEdit">Edit</a>
-                                <a class="btn btn-sm btn-warning" asp-controller="Role" asp-route-id="@role.Id" asp-action="DeleteRole">Delete</a>
-                               
-                                @* <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>*@
+                            <a class="btn btn-sm btn-warning" asp-controller="Role" asp-route-id="@role.Id" asp-action="ShowEdit">Edit</a>
+                            <a class="btn btn-sm btn-warning" asp-controller="Role" asp-route-id="@role.Id" asp-action="DeleteRole">Delete</a>
+
+                            @* <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>*@
                         </td>
                     </tr>
                 }

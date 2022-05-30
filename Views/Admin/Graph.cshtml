@@ -10,9 +10,9 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top:40px; margin-bottom:40px ">
     <div class="row">
-        <div class="col-lg-6 grid-margin stretch-card">
+        <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Product Total Amount Sales</h4>
@@ -21,11 +21,11 @@
             </div>
         </div>
 
-        <div class="col-lg-6 grid-margin stretch-card">
+        <div class="col-lg-6 ">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" >
                     <h4 class="card-title">Product Category Sales</h4>
-                    <canvas id="pieChartCanvas"></canvas>
+                    <canvas style="height:100px" id="pieChartCanvas"></canvas>
                 </div>
             </div>
         </div>
@@ -55,17 +55,35 @@
     function barGraph(jsonResult){
         var names = jsonResult.map(function(item) {
                     return item.name;
-                });     
-                
+                });
+
         var sales = jsonResult.map(function(item) {
                     return item.sales;
-                });   
+                });
 
         const data = {
             labels: names,
             datasets: [{
                 label: 'Sales',
                 data: sales,
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 205, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(255, 159, 64)',
+                  'rgb(255, 205, 86)',
+                  'rgb(75, 192, 192)',
+                  'rgb(54, 162, 235)',
+                  'rgb(153, 102, 255)',
+                  'rgb(201, 203, 207)'
+                ],
                 borderWidth: 1
             }]
         };
@@ -87,19 +105,20 @@
     function pieGraph(jsonResult){
         var names = jsonResult.map(function(item) {
                     return item.name;
-                });     
-                
+                });
+
         var sales = jsonResult.map(function(item) {
                     return item.sales;
-                });   
+                });
 
         const data = {
             labels: names,
             datasets: [{
                 data: sales,
                 fill: true,
-                backgroundColor: [ 'red', 'orange', 'blue', 'pink', 'yellow'],
-                borderColor: ['violet', 'violet'],
+                aspectRatio: 1,
+                backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(201, 203, 207, 0.2)', 'blue', 'pink', 'yellow'],
+                borderColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)'],
                 borderWidth: [2,2]
             }]
         };
