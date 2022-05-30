@@ -19,138 +19,77 @@
 <!-- end breadcrumb section -->
 <!-- check out section -->
 <!-- check out section -->
-@if(@Model!=null){
-<div class="checkout-section mt-150 mb-150">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="checkout-accordion-wrap">
-                    <div class="accordion" id="accordionExample">
-                        <div class="card single-accordion">
-                            @await Html.PartialAsync("~/Views/Orders/Create.cshtml", new AddressViewModel());
-                        </div>
-
-                        <div class="card single-accordion">
-
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="card-details">
-                                        <p>Your card details goes here.</p>
+@if(@Model!=null)
+{
+    <div class="checkout-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="checkout-accordion-wrap">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card single-accordion">
+                                @await Html.PartialAsync("~/Views/Orders/Create.cshtml", new AddressViewModel())
+                            </div>
+                            <div class="card single-accordion">
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="card-details">
+                                            <p>Your card details goes here.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
 
-            <div class="col-lg-4">
-                <div class="order-details-wrap">
-                    <table class="order-details">
-                        <thead>
-                            <tr>
-                                <th>Your order Details</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody class="order-details-body">
-                            <tr>
-                                <td>Product</td>
-                                <td>Total</td>
-                            </tr>
-                            @foreach (var item in Model)
-                            {
-                                TotalPrice = TotalPrice + @item.Subtotal;
+                <div class="col-lg-4">
+                    <div class="order-details-wrap">
+                        <table class="order-details">
+                            <thead>
                                 <tr>
-                                    <td>@item.Product.ProductName</td>
-                                    <td>@item.Subtotal</td>
+                                    <th><b>Product</b></th>
+                                    <th><b>Price</b></th>
                                 </tr>
-                            }
-                        </tbody>
-                        <tbody class="checkout-details">
-                            <tr>
-                                <td><b>Total</b></td>
-                                <td>@TotalPrice</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-}
-else{
-     <div style="margin-left:auto; margin-right:auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <div class="cart-table-wrap">
-                        <h2>Empty shopping cart</h2>
+                            </thead>
+                            <tbody class="order-details-body">
+                                @foreach (var item in Model)
+                                {
+                                    TotalPrice = TotalPrice + @item.Subtotal;
+                                    <tr>
+                                        <td>@item.Product.ProductName</td>
+                                        <td>@item.Subtotal</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tbody class="checkout-details">
+                                <tr>
+                                    <td><b>Total</b></td>
+                                    <td>@TotalPrice</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 }
-
-
-
-
-
-
-
-
-
-
-@*   <div class=" text-center">
-    <a asp-action="Index" asp-controller="Home" class=" btn btn-default">Continue Shoping</a>
+else
+{
+     <div style="height: 400px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-0">
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <div class="cart-table-wrap text-center" style="margin-top: 8rem!important">
+                        <h2>Empty shopping cart</h2>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-0">
+                </div>
+            </div>
+        </div>
     </div>
-
-    @if (Model != null && Model.Any())
-    {
-    decimal TotalPrice = 0;
-    <table class="table">
-    <tr>
-    <th>Product  </th>
-    <th>Quantity</th>
-    <th>Unit Price</th>
-    <th>Subtotal</th>
-    </tr>
-    @foreach (var cartItem in Model)
-    {
-    TotalPrice = TotalPrice + @cartItem.Subtotal;
-    <tr>
-    <td>
-    @cartItem.Product.ProductName
-    </td>
-    <td>
-    @cartItem.Quantity
-    </td>
-    <td>
-    @cartItem.Product.UnitPrice
-    </td>
-
-    <td>
-    @cartItem.Subtotal
-    </td>
-    </tr>
-    }
-
-    </table>
-    <p><b>Total Price: @TotalPrice</b></p>
-
-    <hr />
-    @*        <h3>Please click below link to get your address details</h3>
-    <a asp-action="Create" asp-controller="Orders" class=" btn btn-default"> Address</a>*@
-@*
-    @await Html.PartialAsync("~/Views/Orders/Create.cshtml", new OrderViewModel());
-    }
-    else
-    {
-    <h2 class="text-center">Empty shopping cart</h2>
-    }*@
-
-
+}

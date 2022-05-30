@@ -1,5 +1,6 @@
 ﻿using Fiore.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fiore.Controllers
 {
@@ -7,23 +8,61 @@ namespace Fiore.Controllers
     [Route("api/Dashboard")]
     public class DashboardController : ControllerBase
     {
-        private readonly FioreDbContext context;
+        private readonly FioreDbContext _context;
         public DashboardController(FioreDbContext fioreDbContext)
         {
-            context = fioreDbContext;
+            _context = fioreDbContext;
         }
 
-        [HttpGet]
-        public IActionResult GetLineGraphs()
+        [HttpGet("GetProductSales")]
+        public IActionResult GetProductSales()
         {
-            var sales = context.ProductOrderDetails.GroupBy(a => a.ProductId)
-                .Select(a => new 
-                { 
-                    Sales = a.Sum(b => b.Quantity), 
-                    Name = a.Key
-                }).OrderByDescending(b => b.Name).ToList(); 
+            var productOrderDetails = _context.ProductOrderDetails;
+            var products = _context.Products;
 
-            return Ok(sales);
+            var joinedProductDetails =  from pod in productOrderDetails
+                                        join p in products on pod.ProductId equals p.ProductId
+                                        select new
+                                        {
+                                            ProductId = p.ProductId,
+                                            ProductName = p.ProductName,
+                                            Quantity = pod.Quantity
+                                        };
+
+            var result = joinedProductDetails.GroupBy(a => a.ProductName)
+            .Select(a => new
+            {
+                Sales = a.Sum(b => b.Quantity),
+                Name = a.Key
+            }).OrderByDescending(b => b.Name).ToList();
+
+            return Ok(result);
+        }
+
+        [HttpGet("GetProductCategorySales")]
+        public IActionResult GetProductCategorySales()
+        {
+            var productOrderDetails = _context.ProductOrderDetails;
+            var products = _context.Products.Include(p => p.Category);
+
+            var joinedProductDetails =  from pod in productOrderDetails
+                                        join p in products on pod.ProductId equals p.ProductId
+                                        select new
+                                        {
+                                            ProductId = p.ProductId,
+                                            ProductName = p.ProductName,
+                                            ProductCategory = p.Category.CategoryName,
+                                            Quantity = pod.Quantity
+                                        };
+
+            var result = joinedProductDetails.GroupBy(a => a.ProductCategory)
+            .Select(a => new
+            {
+                Sales = a.Sum(b => b.Quantity),
+                Name = a.Key
+            }).OrderByDescending(b => b.Name).ToList();
+
+            return Ok(result);
         }
     }
 }

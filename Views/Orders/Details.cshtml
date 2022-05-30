@@ -16,7 +16,6 @@
     </div>
 </div>
 
-
 <div class="cart-section mt-150 mb-150">
     <div class="container">
         <div class="row">
@@ -46,7 +45,6 @@
                     </table>
                     <div >
                         <a asp-action="OrderProducts" class="cart-btn" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View order products</a>
-
                     </div>
                 </div>
 
@@ -55,67 +53,3 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-@*<div class=text-center>
-    <table class="table">
-    <thead>
-    <tr>
-    <th>
-    OrderDate
-    </th>
-    <th>
-    TotalPrice
-    </th>
-    <th>
-    HouseNumber
-    </th>
-    <th>
-    StreetName
-    </th>
-    <th>
-    CityName
-    </th>
-    <th>
-    CountryName
-    </th>
-    <th></th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <tr>
-    <td>
-    @Model.OrderDate
-    </td>
-    <td>
-    @Model.TotalPrice
-    </td>
-    <td>
-    @Model.HouseNumber
-    </td>
-    <td>
-    @Model.StreetName
-    </td>
-    <td>
-    @Model.CityName
-    </td>
-    <td>
-    @Model.CountryName
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
-    <a asp-action="OrderProducts" asp-controller="ProductOrderDetails" asp-route-orderId="@Model.OrderId">View Order Details</a>
-    </div>
-*@

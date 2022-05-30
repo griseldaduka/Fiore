@@ -1,6 +1,5 @@
 ﻿@model Fiore.Models.ViewModels.AddressViewModel
 
-
 <div class="card-header" id="headingOne">
     <h5 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -19,7 +18,6 @@
                     <input asp-for="HouseNumber" class="form-control" />
                     <span asp-validation-for="HouseNumber" class="text-danger"></span>
                 </div>
-
                 <div>
                     <label asp-for="StreetName" class="control-label"></label>
                     <input asp-for="StreetName" class="form-control" />
@@ -43,11 +41,8 @@
     </div>
 </div>
 
-
-
-
 @section Scripts {
     @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-}
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

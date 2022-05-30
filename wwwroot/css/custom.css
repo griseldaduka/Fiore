@@ -1,3 +1,11 @@
 ﻿.hide {
     display: none !important;
 }
+
+.out-of-stock {
+    border: 1px solid;
+    color: #F28123;
+    background-color: black;
+    float: right;
+    width: 100%;
+}

@@ -1,26 +1,37 @@
-﻿<!-- breadcrumb-section -->
-<div class="breadcrumb-section breadcrumb-bg">
+﻿<div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
-                    <p>Get 24/7 Support</p>
-                    <h1>Your Complaints</h1>
+                    <h1>Dashboard Data</h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Product Total Amount Sales</h4>
+                    <canvas id="barChartCanvas"></canvas>
+                </div>
+            </div>
+        </div>
 
-<div class="col-lg-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Line chart</h4>
-            <canvas id="canvas"></canvas>
+        <div class="col-lg-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Product Category Sales</h4>
+                    <canvas id="pieChartCanvas"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
@@ -29,113 +40,75 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script>
 
+    $(document).ready(function(){
+        var productSalesUri = 'https://localhost:7258/api/dashboard/GetProductSales';
+        $.getJSON(productSalesUri).done(function(result){
+            barGraph(result);
+        });
 
-            //$(document).ready(function(){
-            //   const labels = ["Janar","Shkurt","Mars","Prill","Maj","Qershor"];
-            //   const data = {
-            //       labels: labels,
-            //       datasets: [{
-            //       label: 'Sales',
-            //       data: [65, 59, 80, 81, 56, 55, 40],
-            //       borderWidth: 1
-            //       }]
-            //   };
+        var productCategorySalesUri = 'https://localhost:7258/api/dashboard/GetProductCategorySales';
+        $.getJSON(productCategorySalesUri).done(function(result){
+            pieGraph(result);
+        });
+    });
 
-            //   var barChartCanvas = canvas.getContext("2d");
+    function barGraph(jsonResult){
+        var names = jsonResult.map(function(item) {
+                    return item.name;
+                });     
+                
+        var sales = jsonResult.map(function(item) {
+                    return item.sales;
+                });   
 
-            //   // This will get the first returned node in the jQuery collection.
-            //   var barChart = new Chart(barChartCanvas, {
-            //       type: 'bar',
-            //       data: data,
-            //               options: {
-            //               scales: {
-            //                   y: {
-            //                   beginAtZero: true
-            //                   }
-            //               }
-            //               },
-            //           });
-            //   });
+        const data = {
+            labels: names,
+            datasets: [{
+                label: 'Sales',
+                data: sales,
+                borderWidth: 1
+            }]
+        };
 
-           $(document).ready(function(){
-               var uri='https://localhost:7258/api/dashboard';
-                $.getJSON(uri).done(function(result){
-                    console.log(result);
-                   graph(result);
-                });
-           });
+        var barChartCanvas = $("#barChartCanvas")[0].getContext("2d");
+        var barChart = new Chart(barChartCanvas, {
+            type: 'bar',
+            data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                },
+            });
+    }
 
-           function graph(json){
-             var lbl = json.map(function(item) {
-                return item.Name;
-            });      
-            console.log(lbl);
-            var sal = json.map(function(item) {
-                return item.Sales;
-            });   
-             console.log(sal);
+    function pieGraph(jsonResult){
+        var names = jsonResult.map(function(item) {
+                    return item.name;
+                });     
+                
+        var sales = jsonResult.map(function(item) {
+                    return item.sales;
+                });   
 
-               const data = {
-                   labels: lbl,
-                   datasets: [{
-                   label: 'Sales',
-                   data: sal,
-                   borderWidth: 1
-                   }]
-               };
+        const data = {
+            labels: names,
+            datasets: [{
+                data: sales,
+                fill: true,
+                backgroundColor: [ 'red', 'orange', 'blue', 'pink', 'yellow'],
+                borderColor: ['violet', 'violet'],
+                borderWidth: [2,2]
+            }]
+        };
 
-               var barChartCanvas = canvas.getContext("2d");
-
-               var barChart = new Chart(barChartCanvas, {
-                   type: 'bar',
-                   data: data,
-                           options: {
-                           scales: {
-                               y: {
-                               beginAtZero: true
-                               }
-                           }
-                           },
-                       });
-
-           }
+        var pieChartCanvas = $("#pieChartCanvas")[0].getContext("2d");
+        var pieChart = new Chart(pieChartCanvas, {
+            type: 'pie',
+            data: data
+            });
+    }
 
 </script>
-    //Ok Example
-         //const labels =["Janar","Shkurt","Mars","Prill","Maj","Qershor"];
-         //    const data = {
-         //      labels: labels,
-         //      datasets: [{
-         //        label: 'My First Dataset',
-         //        data:[65, 59, 80, 81, 56, 55, 40],
-         //        fill: false,
-         //        borderColor: 'rgb(75, 192, 192)',
-         //        tension: 0.1
-         //      }]
-         //    };
-
-
-
-         //    var barChartCanvas = canvas.getContext("2d");
-
-         //    var barChart = new Chart(barChartCanvas, {
-         //        type: 'line',
-         //        data: data,
-         //                options: {
-         //                scales: {
-         //                    y: {
-         //                    beginAtZero: true
-         //                    }
-         //                }
-         //                },
-         //            });
-
-         //    const config = {
-         //    type: 'line',
-         //    data: data,
-         //};
-
-
-
-
-

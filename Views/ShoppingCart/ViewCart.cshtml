@@ -97,8 +97,8 @@ else
 <script type="text/javascript">
     $(document).ready(function(){
         $(".newquantity").change(function(){
-            var qnt=$(this).val();
-            var productid=$(this).siblings(".productid").val();
+            var qnt = $(this).val();
+            var productid = $(this).siblings(".productid").val();
             console.log(qnt, productid);
 
             $.ajax({

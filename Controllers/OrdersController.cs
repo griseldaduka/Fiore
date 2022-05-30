@@ -56,6 +56,7 @@ namespace Fiore.Controllers
             }
             return NotFound();
         }
+
         [Authorize]
         [HttpGet]
         public IActionResult Create()

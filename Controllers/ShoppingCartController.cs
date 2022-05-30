@@ -26,7 +26,7 @@ namespace Fiore.Controllers
         [HttpPost]
         public IActionResult AddCartItem(int id, int quantity)
         {
-            var product = _context.Products.Include(p=>p.Category).First(i=>i.ProductId==id);
+            var product = _context.Products.Include(p => p.Category).First(i => i.ProductId == id);
             if (product == null)
             {
                 return NotFound();
