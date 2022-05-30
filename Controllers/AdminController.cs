@@ -59,6 +59,11 @@ namespace Fiore.Controllers
             }
             var model = new UserViewModel
             {
+                Id=user.Id, 
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName= user.LastName, 
+                Role=string.Join(",", UserManager.GetRolesAsync(user).Result.ToArray()),
                 UserName = user.UserName
             };
             var roles = RoleManager.Roles;
